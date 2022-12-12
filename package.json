@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "del": "^5.0.0",
+    "gulp-font": "^1.0.4",
     "gulp-pug": "^5.0.0",
     "pug": "^3.0.2"
   }
