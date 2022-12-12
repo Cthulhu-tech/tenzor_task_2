@@ -1,12 +1,13 @@
 //Connect the gulp modules
 const gulp = require('gulp');
 const pug = require('gulp-pug');
-// const concat = require('gulp-concat');
+const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
 const del = require('del');
 const browserSync = require('browser-sync').create();
+const gulpFont = require('gulp-font');
 
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
@@ -29,7 +30,7 @@ function styles() {
    .pipe(sourcemaps.init())
    .pipe(sass())
    //Merge files into one
-   // .pipe(concat('style.css'))
+   .pipe(concat('style.css'))
    //Add prefixes
    .pipe(autoprefixer())
    //CSS minification
@@ -46,7 +47,7 @@ function styles() {
 function scripts() {
    return gulp.src(jsFiles)
    //Merge files into one
-   // .pipe(concat('script.js'))
+   .pipe(concat('script.js'))
    //JS minification
    .pipe(uglify({
       toplevel: true
@@ -56,12 +57,19 @@ function scripts() {
    .pipe(browserSync.stream());
 }
 
+//Task for Assets
+function assets() {
+   return gulp.src(['src/assets/**/*.{ttf,woff,eot,svg}'])
+   .pipe(gulp.dest('resources/assets'));
+}
+
 function pugViews() {
    return gulp.src([
-      'src/**/*.pug',
+      'src/index.pug',
    ])
    .pipe(pug({pretty: true}))
-   .pipe(gulp.dest('./resources/views'))
+   .pipe(gulp.dest('./resources'))
+   .pipe(concat('index.html'))
    .pipe(browserSync.stream());
 }
 
@@ -74,7 +82,7 @@ function clean() {
 function watch() {
    browserSync.init({
       server: {
-          baseDir: "./resources/views"
+          baseDir: "./resources"
       }
   });
   //Watch CSS files
@@ -89,6 +97,8 @@ function watch() {
   gulp.watch("./src/index.pug").on('change', browserSync.reload);
 }
 
+//Task calling 'assets' function
+gulp.task('assets', assets);
 //Task calling 'pug' function
 gulp.task('pug', pugViews);
 //Task calling 'styles' function
@@ -100,7 +110,7 @@ gulp.task('del', clean);
 //Task for changes tracking
 gulp.task('watch', watch);
 //Task for cleaning the 'build' folder and running 'styles' and 'scripts' functions
-gulp.task('build', gulp.series(clean, gulp.parallel(styles,scripts)));
+gulp.task('build', gulp.series(clean, gulp.parallel(styles, scripts, pugViews, assets)));
 //Task launches build and watch task sequentially
 gulp.task('dev', gulp.series('build','watch'));
 //Default task
