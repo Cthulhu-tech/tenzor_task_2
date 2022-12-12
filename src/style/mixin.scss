@@ -1,0 +1,14 @@
+@mixin block($width, $height, $margin: 0px) {
+    display: flex;
+    max-width: $width;
+    min-height: $height;
+    margin: $margin auto;
+}
+
+@mixin button($width, $height, $background: transparent, $color: #000) {
+    cursor: pointer;
+    border-radius: 60px;
+    padding: $width $height;
+    border: 1px solid $color;
+    background-color: $background;
+}
