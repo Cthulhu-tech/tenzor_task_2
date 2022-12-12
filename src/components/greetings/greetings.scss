@@ -1,0 +1,167 @@
+@import '../../style/mixin.scss';
+@import '../../style/color.scss';
+
+.main__container_greetings {
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.sub_main__container_greetings {
+    top: 100vh;
+    z-index: 0;
+    width: 100%;
+    display: flex;
+    min-height: 100vh;
+    position: absolute;
+    border-radius: 48px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    border-radius: 48px;
+
+    animation: 4s upAnimation forwards;
+}
+
+.main__container_text {
+    display: flex;
+    max-width: 850px;
+    margin-top: 48px;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.main__title {
+    color: white;
+    text-align: start;
+    line-height: 98.49%;
+    letter-spacing: -0.026em;
+    font-size: clamp(24px, 10vw, 96px);
+
+    animation: 5s invertColor forwards;
+}
+
+.main__text {
+    width: 100%;
+    color: $yellow;
+    margin: 13px -4px 0;
+    text-align: start;
+    line-height: 23px;
+    font-family: 'Helvetica';
+    font-size: clamp(14px, 8vw, 20px);
+
+    animation: 5s invertColor forwards;
+}
+
+.main__container_line {
+    width: 100%;
+    position: absolute;
+
+    &::before, &::after {
+        left: 0;
+        content: '';
+        position: absolute;
+    }
+    &::before {
+        height: 2px;
+        width: 46.6%;
+        bottom: -166px;
+        background-color: $yellow;
+
+        animation: 5s invertBackgroundColor forwards;
+    }
+    &::after{
+        bottom: -169px;
+        border-left: 4px solid $yellow;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+
+        animation: 5s invertArrowColor forwards;
+    }
+}
+
+.main__container_elipse {
+    width: 100%;
+    position: absolute;
+    &::before, &::after {
+        content: "";
+        position: absolute;
+        border-radius: 100%;
+
+        animation: 5s invertElipseColor forwards;
+    }
+    &::after {
+        top: 28px;
+        width: 53px;
+        height: 53px;
+        right: 167px;
+        border: 1px solid $yellow;
+    }
+
+    &::before{
+        top: 54px;
+        right: 193px;
+        border: 2px solid $yellow;
+    }
+}
+
+.container_greetings__button {
+    font-size: 20px;
+    line-height: 23px;
+    margin: 74px 6px 12px;
+    font-family: 'Helvetica';
+    text-transform: uppercase;
+    @include button(36px, 98px, white, black);
+
+    animation: 5s invertButtonColor forwards;
+}
+
+@keyframes upAnimation {
+    55% {
+        background-color: black;
+    }
+    to {
+        top: 0;
+        background-color: white;
+    }
+}
+
+@keyframes invertColor {
+    to {
+        color: black;
+    }
+}
+
+@keyframes invertBackgroundColor {
+    0% {
+        width: 0;
+    }
+    55% {
+        width: 46.6%;
+    }
+    to {
+        background-color: black;
+    }
+}
+
+@keyframes invertArrowColor {
+    55%{
+        left: 46.6%;
+    }
+    to {
+        left: 46.6%;
+        border-left-color: black;
+    }
+}
+
+@keyframes invertElipseColor {
+    to {
+        border-color: black;
+    }
+}
+
+@keyframes invertButtonColor {
+    to {
+        border-color: $yellow;
+    }
+}
