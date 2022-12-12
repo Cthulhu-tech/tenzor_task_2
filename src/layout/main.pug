@@ -6,8 +6,12 @@ html(lang="ru")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title= pageTitle
+        link(rel="stylesheet", href="css/style.css")
     body
     include ../components/header/header
-        main(class="main")
-            block content
+        
+    main(class="main")
+        block content
+
     include ../components/footer/footer
+        script(src="js/script.js", defer)
