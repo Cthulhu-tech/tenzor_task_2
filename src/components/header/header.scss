@@ -10,9 +10,8 @@
 }
 
 .header__title {
-    font-size: 30px;
     margin-top: -1px;
-    letter-spacing: -0.03em;
+    @include text(30px, 'HandelGothic TL', black, -0.03em);
 }
 
 .header__logo {
@@ -20,12 +19,9 @@
 }
 
 .header__text {
-    color: $gray;
-    font-size: 18px;
     font-weight: 100;
     margin-left: -13px;
-    font-family: 'Helvetica';
-    letter-spacing: 0.012em;
+    @include text(18px, 'Helvetica', $gray, 0.012em);
 }
 
 .header__container_logo {
@@ -43,10 +39,8 @@
 }
 
 .header__button_contacts {
-    font-size: 18px;
-    letter-spacing: 0.019em;
-    font-family: 'Helvetica';
     @include button(10px, 30px);
+    @include text(18px, 'Helvetica', black, 0.019em);
 }
 
 .header__button_burger {
