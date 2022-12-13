@@ -1,12 +1,12 @@
 @import '../../style/mixin.scss';
 @import '../../style/color.scss';
 
-.main__container_greetings {
+.container_greetings {
     overflow: hidden;
     min-height: 100vh;
 }
 
-.sub_main__container_greetings {
+.sub_container_greetings {
     top: 100vh;
     z-index: 0;
     width: 100%;
@@ -23,7 +23,7 @@
     animation: 4s upAnimation forwards;
 }
 
-.main__container_text {
+.wrapper_text {
     display: flex;
     max-width: 850px;
     margin-top: 48px;
@@ -32,28 +32,24 @@
 }
 
 .main__title {
-    color: white;
     text-align: start;
     line-height: 98.49%;
-    letter-spacing: -0.026em;
-    font-size: clamp(24px, 10vw, 96px);
+    @include text(clamp(24px, 10vw, 96px), 'HandelGothic TL', white, -0.026em);
 
     animation: 5s invertColor forwards;
 }
 
 .main__text {
     width: 100%;
-    color: $yellow;
-    margin: 13px -4px 0;
     text-align: start;
     line-height: 23px;
-    font-family: 'Helvetica';
-    font-size: clamp(14px, 8vw, 20px);
+    margin: 11px -4px 0;
+    @include text(clamp(14px, 8vw, 20px), 'Helvetica', $yellow, 0.002em);
 
     animation: 5s invertColor forwards;
 }
 
-.main__container_line {
+.animation_line {
     width: 100%;
     position: absolute;
 
@@ -62,6 +58,7 @@
         content: '';
         position: absolute;
     }
+
     &::before {
         height: 2px;
         width: 46.6%;
@@ -80,7 +77,7 @@
     }
 }
 
-.main__container_elipse {
+.animation_elipse {
     width: 100%;
     position: absolute;
     &::before, &::after {
@@ -106,62 +103,10 @@
 }
 
 .container_greetings__button {
-    font-size: 20px;
-    line-height: 23px;
     margin: 74px 6px 12px;
-    font-family: 'Helvetica';
     text-transform: uppercase;
     @include button(36px, 98px, white, black);
+    @include text(clamp(14px, 8vw, 20px), 'Helvetica', $yellow, 0.002em);
 
     animation: 5s invertButtonColor forwards;
-}
-
-@keyframes upAnimation {
-    55% {
-        background-color: black;
-    }
-    to {
-        top: 0;
-        background-color: white;
-    }
-}
-
-@keyframes invertColor {
-    to {
-        color: black;
-    }
-}
-
-@keyframes invertBackgroundColor {
-    0% {
-        width: 0;
-    }
-    55% {
-        width: 46.6%;
-    }
-    to {
-        background-color: black;
-    }
-}
-
-@keyframes invertArrowColor {
-    55%{
-        left: 46.6%;
-    }
-    to {
-        left: 46.6%;
-        border-left-color: black;
-    }
-}
-
-@keyframes invertElipseColor {
-    to {
-        border-color: black;
-    }
-}
-
-@keyframes invertButtonColor {
-    to {
-        border-color: $yellow;
-    }
 }

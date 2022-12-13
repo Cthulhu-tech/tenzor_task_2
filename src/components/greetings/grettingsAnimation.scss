@@ -1,0 +1,51 @@
+@import '../../style/color.scss';
+
+@keyframes upAnimation {
+    55% {
+        background-color: black;
+    }
+    to {
+        top: 0;
+        background-color: white;
+    }
+}
+
+@keyframes invertColor {
+    to {
+        color: black;
+    }
+}
+
+@keyframes invertBackgroundColor {
+    0% {
+        width: 0;
+    }
+    55% {
+        width: 46.6%;
+    }
+    to {
+        background-color: black;
+    }
+}
+
+@keyframes invertArrowColor {
+    55%{
+        left: 46.6%;
+    }
+    to {
+        left: 46.6%;
+        border-left-color: black;
+    }
+}
+
+@keyframes invertElipseColor {
+    to {
+        border-color: black;
+    }
+}
+
+@keyframes invertButtonColor {
+    to {
+        border-color: $yellow;
+    }
+}
