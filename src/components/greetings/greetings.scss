@@ -31,7 +31,7 @@
     flex-direction: column;
 }
 
-.main__title {
+.container_greetings__title {
     text-align: start;
     line-height: 98.49%;
     @include text(clamp(24px, 10vw, 96px), 'HandelGothic TL', white, -0.026em);
@@ -39,7 +39,7 @@
     animation: 5s invertColor forwards;
 }
 
-.main__text {
+.container_greetings__text {
     width: 100%;
     text-align: start;
     line-height: 23px;
@@ -85,7 +85,7 @@
         position: absolute;
         border-radius: 100%;
 
-        animation: 5s invertElipseColor forwards;
+        // animation: 5s invertElipseColor forwards;
     }
     &::after {
         top: 28px;
@@ -106,7 +106,7 @@
     margin: 74px 6px 12px;
     text-transform: uppercase;
     @include button(36px, 98px, white, black);
-    @include text(clamp(14px, 8vw, 20px), 'Helvetica', $yellow, 0.002em);
+    @include text(clamp(14px, 8vw, 20px), 'Helvetica', black, 0.002em);
 
     animation: 5s invertButtonColor forwards;
 }

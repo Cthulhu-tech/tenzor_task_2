@@ -24,7 +24,7 @@
         width: 46.6%;
     }
     to {
-        background-color: black;
+        // background-color: black;
     }
 }
 
@@ -34,7 +34,7 @@
     }
     to {
         left: 46.6%;
-        border-left-color: black;
+        // border-left-color: black;
     }
 }
 
@@ -46,6 +46,7 @@
 
 @keyframes invertButtonColor {
     to {
+        color: $yellow;
         border-color: $yellow;
     }
 }
