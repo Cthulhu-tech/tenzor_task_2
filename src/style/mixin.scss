@@ -12,3 +12,11 @@
     border: 1px solid $color;
     background-color: $background;
 }
+
+
+@mixin text($fontSize: 18, $font-family: 'Helvetica', $color: black, $letter-spacing: 0) {
+    color: $color;
+    font-size: $fontSize;
+    font-family: $font-family;
+    letter-spacing: $letter-spacing;
+}
