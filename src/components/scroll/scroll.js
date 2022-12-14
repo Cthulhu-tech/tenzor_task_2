@@ -1,6 +1,7 @@
 const subContainerGreetings = document.querySelector('.sub_container_greetings')
 const scrollWrapper = document.querySelector('.scroll_wrapper')
 const header = document.querySelector('.header')
+const footer = document.querySelector('.footer')
 // устанавливаем переменную отвественную за ширину блоков
 let windthScrollWrapper = 0
 // функция отвечающая за горизонтальный скролл

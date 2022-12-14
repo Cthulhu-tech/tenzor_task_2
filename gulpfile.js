@@ -59,7 +59,7 @@ function scripts() {
 
 //Task for Assets
 function assets() {
-   return gulp.src(['src/assets/**/*.{ttf,woff,eot,svg}'])
+   return gulp.src(['src/assets/**/*.{ttf,woff,eot,svg,otf}'])
    .pipe(gulp.dest('resources/assets'));
 }
 
