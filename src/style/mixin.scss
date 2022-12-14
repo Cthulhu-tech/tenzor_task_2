@@ -1,6 +1,6 @@
 @mixin block($width, $height, $margin: 0px) {
     display: flex;
-    max-width: $width;
+    width: $width;
     min-height: $height;
     margin: $margin auto;
 }
