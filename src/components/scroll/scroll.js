@@ -11,7 +11,7 @@ const horizontalScrollingHandler = () => {
     // устанавливаем начальную позициюдля возможности скролла для того чтобы в последующем задать фиксируванную позицию скролл контейнера
     const initialPosition = (subContainerGreetings.offsetHeight + header.offsetHeight)
     // задаем максимальную позицию для окончания скролла вертикального контейнера (обшая длинна контейнера + длинна первого блока + (ширина хедер контейнера + отступ от анимации) - ширина пользовательского окна (если не сделать будет пустое поле в ширину 1 экрана))
-    const maxScrollPosition = ((windthScrollWrapper + window.innerHeight + (header.offsetHeight * 2)) - window.innerWidth - 123)
+    const maxScrollPosition = ((windthScrollWrapper + window.innerHeight + header.offsetHeight) - window.innerWidth)
     // позиция элемента от правого края
     const rightPosition = -(windthScrollWrapper - scrollWrapper.offsetWidth)
     // проверяем позицию скролла с инициализированной позицией и максимально разрешенной позицией для скролла
