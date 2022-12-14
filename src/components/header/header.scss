@@ -2,7 +2,7 @@
 @import '../../style/color.scss';
 
 .header {
-    z-index: 2;
+    z-index: 10;
     position: relative;
     align-items: center;
     @include block(100%, 123px);
