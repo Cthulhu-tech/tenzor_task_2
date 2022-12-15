@@ -99,6 +99,7 @@ class HorizontalScrolling {
     }
     private scrollLoop = () => {
         console.log(window.innerHeight , this.scrollY)
+        // проверяем пересечение с первым фреймом
         if(window.innerHeight > this.scrollY)
             this.setTranslate((window.pageYOffset * -0.5 + (this.paralaxImg.offsetHeight/2 + 60)), (window.pageYOffset * 0.05 - 220), this.paralaxImg);
         requestAnimationFrame(this.scrollLoop);
