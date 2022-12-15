@@ -100,17 +100,18 @@ class HorizontalScrolling {
     }
     private imageObserver = (target: HTMLImageElement) => {
         const parentElement = (target.parentElement as HTMLDivElement)
-        const positionImg = target.getBoundingClientRect().right - window.innerWidth
-
         // правильно
         const stopAnimationPosition = (parentElement.parentElement as HTMLDivElement).offsetWidth - 150 - target.offsetWidth
-
-        console.log(positionImg, getComputedStyle(parentElement).left, window.pageXOffset)
-
-
-
-
-
+        const startAnimationPosition = Math.abs(target.getBoundingClientRect().x + window.pageXOffset)
+        if(startAnimationPosition < parentElement.offsetLeft && parentElement.offsetLeft < stopAnimationPosition){
+            parentElement.style.left = parentElement.offsetLeft + 'px'
+        }
+        if(parentElement.offsetLeft >= stopAnimationPosition){
+            parentElement.style.left = stopAnimationPosition + 'px'
+        }
+        // if(parentElement.offsetLeft <= startAnimationPosition){
+        //     parentElement.style.left = 0 + 'px'
+        // }
         // if(Math.abs(positionImg) <= stopAnimationPosition && this.scrollWrapper.style.position === 'fixed')
         //     parentElement.style.left = Math.abs(positionImg) + 'px'
         // if(Math.abs(positionImg) >= +parentElement.getBoundingClientRect().left)
@@ -123,6 +124,7 @@ class HorizontalScrolling {
         window.addEventListener('scroll', this.horizontalScrollingHandler)
         window.addEventListener('mousemove', this.positionCursorHandler)
         this.imgArray.forEach((img) => {
+            this.imageObserver(img)
             window.addEventListener('scroll', () => this.imageObserver(img));
         })
     }
