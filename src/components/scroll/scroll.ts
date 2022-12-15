@@ -10,9 +10,7 @@ class HorizontalScrolling {
     private header: HTMLElement
     private main: HTMLElement
     private cursor: HTMLDivElement
-    private wrapper: HTMLDivElement
-    private imgArray: HTMLImageElement[]
-    private halfWidthWrapper: number
+    private paralaxImg: HTMLImageElement
     constructor() {
         this.scrollY = 0
         this.allHeightBody = 0
@@ -20,14 +18,12 @@ class HorizontalScrolling {
         this.initialPosition = 0
         this.maxScrollPosition = 0
         this.windthScrollWrapper = 0
+        this.paralaxImg = document.querySelector(".paralax_background") as HTMLImageElement
         this.cursor = document.querySelector('.cursor') as HTMLDivElement
         this.subContainerGreetings = document.querySelector('.sub_container_greetings') as HTMLDivElement
         this.scrollWrapper = document.querySelector('.scroll_wrapper') as HTMLDivElement
         this.header = document.querySelector('.header') as HTMLElement
         this.main = document.querySelector('.main') as HTMLElement
-        this.wrapper = document.querySelector('.wrapper') as HTMLDivElement
-        this.halfWidthWrapper = this.wrapper.offsetWidth / 2
-        this.imgArray = Array.from(document.querySelectorAll('.img')) as HTMLImageElement[]
     }
     private updateScrollWrapperWidth = () => {
         this.windthScrollWrapper = 0 - this.scrollWrapper.offsetWidth
@@ -98,36 +94,22 @@ class HorizontalScrolling {
             this.scrollWrapper.style.top = (this.maxScrollPosition - (window.innerHeight + this.header.offsetHeight)) + 'px'
         }
     }
-    private imageObserver = (target: HTMLImageElement) => {
-        const parentElement = (target.parentElement as HTMLDivElement)
-        // правильно
-        const stopAnimationPosition = (parentElement.parentElement as HTMLDivElement).offsetWidth - 150 - target.offsetWidth
-        const startAnimationPosition = Math.abs(target.getBoundingClientRect().x + window.pageXOffset)
-        if (parentElement.offsetLeft > startAnimationPosition && parentElement.offsetLeft < stopAnimationPosition) {
-            parentElement.style.left = parentElement.offsetLeft + 'px'
-        }
-        console.log(parentElement.offsetLeft, stopAnimationPosition, startAnimationPosition)
-        if (startAnimationPosition <= stopAnimationPosition) {
-            parentElement.style.left = stopAnimationPosition + 'px'
-        }
-        // if(parentElement.offsetLeft <= startAnimationPosition){
-        //     parentElement.style.left = 0 + 'px'
-        // }
-        // if(Math.abs(positionImg) <= stopAnimationPosition && this.scrollWrapper.style.position === 'fixed')
-        //     parentElement.style.left = Math.abs(positionImg) + 'px'
-        // if(Math.abs(positionImg) >= +parentElement.getBoundingClientRect().left)
-        //     parentElement.style.left = stopAnimationPosition + 'px'
+    private setTranslate = (x, y, el) => {
+            el.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
+    }
+    private scrollLoop = () => {
+        console.log(window.innerHeight , this.scrollY)
+        if(window.innerHeight > this.scrollY)
+            this.setTranslate((window.pageYOffset * -0.5 + (this.paralaxImg.offsetHeight/2 + 60)), (window.pageYOffset * 0.05 - 220), this.paralaxImg);
+        requestAnimationFrame(this.scrollLoop);
     }
     eventListenerHandler = () => {
         this.resizeHandler()
         this.horizontalScrollingHandler()
+        window.addEventListener("DOMContentLoaded", this.scrollLoop);
         window.addEventListener('resize', this.resizeHandler)
         window.addEventListener('scroll', this.horizontalScrollingHandler)
         window.addEventListener('mousemove', this.positionCursorHandler)
-        this.imgArray.forEach((img) => {
-            this.imageObserver(img)
-            window.addEventListener('scroll', () => this.imageObserver(img));
-        })
     }
 }
 

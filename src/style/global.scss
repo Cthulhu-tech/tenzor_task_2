@@ -1,3 +1,5 @@
+@import './mixin.scss';
+
 @font-face {
     font-family: "HandelGothic TL";
     src: url("../assets/fonts/handelGothicTL.ttf");
@@ -17,4 +19,24 @@
 
 body, html {
     overflow-x: hidden;
+}
+
+.parallax {
+    inset: 0;
+    position: fixed;
+}
+
+.parallax_layer {
+    inset: 0;
+    position: absolute;
+}
+
+.paralax_background {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    & > img {
+        width: 100%;
+    }
 }

@@ -7,7 +7,6 @@
     cursor: none;
     min-height: 100vh;
     position: relative;
-    background-color: white;
 }
 
 .scroll_wrapper {
@@ -25,7 +24,6 @@
     align-items: normal;
     flex-direction: column;
     justify-content: center;
-    background-color: white;
     min-width: clamp(280px, 80%, 954px);
 }
 
@@ -62,10 +60,17 @@
     border-radius: 48px;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-end;
+    background-color: white;
+    justify-content: space-between;
     border: 1px solid $whiteBorder;
     @include block(clamp(280px, 100%, 956px), 802px);
     margin-top: 5px;
+}
+
+.wrapper_grid {
+    justify-items: end;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr minmax(280px, 954px);
 }
 
 .sub_wrapper_text {
@@ -101,11 +106,12 @@
 }
 
 .wrapper_img {
+    right: 0px;
     left: -4px;
-    top: -233px;
     display: flex;
     overflow: hidden;
-    position: relative;
+    position: sticky;
+    margin-top: 18px;
     align-items: center;
     border-radius: 495px;
     transition: linear 0.3s;
