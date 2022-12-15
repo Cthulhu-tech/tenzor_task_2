@@ -7,7 +7,7 @@ const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
 const del = require('del');
 const browserSync = require('browser-sync').create();
-const gulpFont = require('gulp-font');
+const ts = require('gulp-typescript');
 
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
@@ -45,21 +45,20 @@ function styles() {
 
 //Task for JS scripts
 function scripts() {
-   return gulp.src(jsFiles)
-   //Merge files into one
-   .pipe(concat('script.js'))
-   //JS minification
-   .pipe(uglify({
-      toplevel: true
+   return gulp.src('src/**/*.ts')
+   .pipe(ts({
+      target: "es5",
+      sourceMap: true,
+      watch: true,
+      removeComments: true,
+      outFile: 'script.js'
    }))
-   //Output folder for scripts
-   .pipe(gulp.dest('./resources/js'))
-   .pipe(browserSync.stream());
+   .pipe(gulp.dest('resources/js'));
 }
 
 //Task for Assets
 function assets() {
-   return gulp.src(['src/assets/**/*.{ttf,woff,eot,svg,otf}'])
+   return gulp.src(['src/assets/**/*.{ttf,woff,eot,svg,otf,png}'])
    .pipe(gulp.dest('resources/assets'));
 }
 
@@ -90,7 +89,7 @@ function watch() {
   gulp.watch('./src/**/*.sass', styles);
   gulp.watch('./src/**/*.scss', styles);
   //Watch JS files
-  gulp.watch('./src/**/*.js', scripts);
+  gulp.watch('./src/**/*.ts', scripts);
   // Wath Pug files
   gulp.watch('./src/**/*.pug', pugViews);
   //Start synchronization after HTML changing
