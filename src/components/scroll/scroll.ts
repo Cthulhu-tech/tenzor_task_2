@@ -59,11 +59,11 @@ class HorizontalScrolling {
     }
     private positionCursorHandler = (event: MouseEvent) => {
         // ограничиваем кастомный курсор в областе видимости горизонтального скролла
-        if(event.pageY > this.initialPosition && event.pageY < this.maxScrollPosition + this.scrollWrapper.offsetHeight) {
+        if (event.pageY > this.initialPosition && event.pageY < this.maxScrollPosition + this.scrollWrapper.offsetHeight) {
             this.cursor.style.display = "block"
             this.cursor.style.top = event.clientY + 'px'
             this.cursor.style.left = event.clientX + 'px'
-        }else {
+        } else {
             this.cursor.style.display = "none"
         }
     }
@@ -103,10 +103,11 @@ class HorizontalScrolling {
         // правильно
         const stopAnimationPosition = (parentElement.parentElement as HTMLDivElement).offsetWidth - 150 - target.offsetWidth
         const startAnimationPosition = Math.abs(target.getBoundingClientRect().x + window.pageXOffset)
-        if(startAnimationPosition < parentElement.offsetLeft && parentElement.offsetLeft < stopAnimationPosition){
+        if (parentElement.offsetLeft > startAnimationPosition && parentElement.offsetLeft < stopAnimationPosition) {
             parentElement.style.left = parentElement.offsetLeft + 'px'
         }
-        if(parentElement.offsetLeft >= stopAnimationPosition){
+        console.log(parentElement.offsetLeft, stopAnimationPosition, startAnimationPosition)
+        if (startAnimationPosition <= stopAnimationPosition) {
             parentElement.style.left = stopAnimationPosition + 'px'
         }
         // if(parentElement.offsetLeft <= startAnimationPosition){
