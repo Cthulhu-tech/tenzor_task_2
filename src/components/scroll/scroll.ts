@@ -76,7 +76,6 @@ class HorizontalScrolling {
         this.maxScrollPosition = ((this.windthScrollWrapper + window.innerHeight + this.header.offsetHeight))
         // позиция элемента от правого края
         this.rightPosition = -(this.windthScrollWrapper)
-        const topPositionScrollInit = this.subContainerGreetings.offsetHeight - this.scrollY
         // проверяем позицию скролла с инициализированной позицией и максимально разрешенной позицией для скролла
         if (this.scrollY > this.initialPosition && this.scrollY < this.maxScrollPosition) {
             this.scrollWrapper.style.top = '0'
@@ -85,38 +84,37 @@ class HorizontalScrolling {
         }
         // проверяем чтобы позиция скролла окна была меньше минимально разрешенной начальной позиции скролла
         if (this.scrollY <= this.initialPosition) {
-            console.log(this.scrollY,topPositionScrollInit)
-            if(this.scrollY < topPositionScrollInit){
-                this.scrollWrapper.style.transition = '0.1s'
-                this.scrollWrapper.style.top = topPositionScrollInit + 'px'
-            }else {
-                this.scrollWrapper.style.top = this.scrollY + 'px'
-            }
             // устанавливаем позицию скролл контейнера в 0
             this.scrollWrapper.style.left = '0'
             // устанавливаем позицию скролла в начальное положение
-            this.scrollWrapper.style.position = "fixed"
+            this.scrollWrapper.style.position = "initial"
         }
         // проверяем чтобы позиция скролла окна была больше максимальной разрешенной позиции для скролла
         if (this.scrollY >= this.maxScrollPosition) {
-            this.scrollWrapper.style.transition = '0.0s'
             // устанавливаем позицию обсолютную для
             this.scrollWrapper.style.position = "absolute"
             this.scrollWrapper.style.left = this.rightPosition + 'px'
             // скрывает элемент с экрана пользователя
             this.scrollWrapper.style.top = (this.maxScrollPosition - (window.innerHeight + this.header.offsetHeight)) + 'px'
         }
-        if(this.scrollWrapper.style.position === "fixed" && this.scrollWrapper.getBoundingClientRect().top === 0)
-            this.scrollWrapper.style.transition = '0.5s'
     }
     private imageObserver = (target: HTMLImageElement) => {
-        const halhImage = (target.offsetWidth / 2)
-        const positionEndAnimation = (this.halfWidthWrapper - halhImage)
-        const positionImg = target.getBoundingClientRect().right - this.subContainerGreetings.offsetWidth
-        if(positionImg <= 0 && Math.abs(positionImg) <= positionEndAnimation && this.scrollWrapper.style.position === 'fixed')
-            (target.parentElement as HTMLDivElement).style.transform = `translateX(${Math.abs(positionImg)}px)`
-        if(Math.abs(positionImg) >= positionEndAnimation)
-            (target.parentElement as HTMLDivElement).style.transform = `translateX(${Math.abs(positionEndAnimation)}px)`
+        const parentElement = (target.parentElement as HTMLDivElement)
+        const positionImg = target.getBoundingClientRect().right - window.innerWidth
+
+        // правильно
+        const stopAnimationPosition = (parentElement.parentElement as HTMLDivElement).offsetWidth - 150 - target.offsetWidth
+
+        console.log(positionImg, getComputedStyle(parentElement).left, window.pageXOffset)
+
+
+
+
+
+        // if(Math.abs(positionImg) <= stopAnimationPosition && this.scrollWrapper.style.position === 'fixed')
+        //     parentElement.style.left = Math.abs(positionImg) + 'px'
+        // if(Math.abs(positionImg) >= +parentElement.getBoundingClientRect().left)
+        //     parentElement.style.left = stopAnimationPosition + 'px'
     }
     eventListenerHandler = () => {
         this.resizeHandler()
