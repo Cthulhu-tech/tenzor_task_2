@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: "Helvetica";
-    src: url("../assets/fonts/helvetica_light.otf");
+    src: url("../assets/fonts/helvetica_regular.otf");
 }
 
 * {
@@ -21,9 +21,15 @@ body, html {
     overflow-x: hidden;
 }
 
+body {
+    overflow: hidden;
+}
+
 .parallax {
     inset: 0;
+    z-index: -1;
     position: fixed;
+    display: none;
 }
 
 .parallax_layer {
@@ -38,5 +44,13 @@ body, html {
     min-height: 100vh;
     & > img {
         width: 100%;
+        &:nth-child(1) {
+            transform: translate3d(585px, -220px, 0px);
+        }
     }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
 }
