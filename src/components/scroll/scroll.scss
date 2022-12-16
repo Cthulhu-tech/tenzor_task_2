@@ -20,6 +20,7 @@
 .article {
     display: flex;
     margin: 0 16px;
+    padding-top: 15px;
     min-height: 100vh;
     align-items: normal;
     flex-direction: column;
@@ -29,17 +30,22 @@
 
 .sub_scroll_wrapper {
     display: flex;
-    margin-right: 19px;
+    margin-left: 70px;
+    margin-right: 12px;
     flex-direction: column;
     justify-content: center;
 }
 
 .sub_sub_scroll_wrapper {
-    margin: 145px 120px 0 -5px;
+    margin: 145px 118px 0 -5px;
 }
 
 .scroll__title {
     width: 50vw;
+    margin-left: 2px;
+}
+
+.main__title {
     line-height: 98%;
     padding-left: 25px;
     @include text(clamp(24px, 10vw, 96px), 'HandelGothic TL', black, -0.03em);
@@ -64,22 +70,25 @@
     justify-content: space-between;
     border: 1px solid $whiteBorder;
     @include block(clamp(280px, 100%, 956px), 802px);
-    margin-top: 5px;
+    margin-top: -10px;
 }
 
 .wrapper_grid {
+    margin-top: 3px;
+    margin-left: -3px;
     justify-items: end;
     display: inline-grid;
-    grid-template-columns: 1fr 1fr minmax(280px, 954px);
+    grid-template-columns: 1fr 1fr minmax(280px, 956px);
 }
 
 .sub_wrapper_text {
     display: flex;
     min-height: 150px;
+    margin-bottom: 8px;
     position: relative;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .sub_sub_wrapper_text {
@@ -87,14 +96,14 @@
 }
 
 .text {
+    margin-left: 3px;
     line-height: 21px;
     text-transform: uppercase;
-    @include text(18px, 'Helvetica', black, 0.016em);
+    @include text(18px, 'Helvetica', black, -0.015em);
 }
 
 .title {
-    top: -4px;
-    left: -5px;
+    left: -3px;
     line-height: 98%;
     position: inherit;
     margin-bottom: 30px;
@@ -106,8 +115,8 @@
 }
 
 .wrapper_img {
-    right: 0px;
     left: -4px;
+    right: 30px;
     display: flex;
     overflow: hidden;
     position: sticky;
