@@ -1,0 +1,29 @@
+@import '../../style/mixin.scss';
+@import '../../style/color.scss';
+
+.section_form {
+    position: relative;
+    padding: 52px 48px 48px 45px;
+    @include block(clamp(280px, 100%, 1440px), 2603px);
+    flex-direction: column;
+}
+
+.wrapper_benefits {
+    width: 100%;
+    position: relative;
+    border-top: 2px solid $whiteBorder;
+}
+
+.wrapper_form_text {
+    display: flex;
+    margin-top: 7em;
+    margin-right: 3.3em;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.section__form__text {
+    margin-top: 32px;
+    margin-right: -4px;
+    @include text(clamp(18px, 10em, 30px), 'Helvetica', black, -0.01em);
+}
