@@ -36,7 +36,7 @@ class HorizontalScrolling {
     }
     private updateHeightBody = () => {
         // переменная отвечающая за общую ширину body контейнера
-        this.allHeightBody = 0
+        this.allHeightBody = 0 - window.innerHeight
         // получаем длину всех элементов внутри обертки скролл контейнера для того чтобы получить длину скролл контейнера
         Array.from(document.body.children).forEach((node) => {
             // получаем общую ширину всех контейнеров
@@ -50,7 +50,7 @@ class HorizontalScrolling {
         // устанавливаем максимальную возможность скролла с учетом количества вложенных элементов в скролл контейнер и общего количества контейнеров внутри тега body с вычетом ширины скрола
         document.body.style.height = (this.windthScrollWrapper + this.allHeightBody) + 'px'
         // устанавливаем следующему элементу за main контейнером margin-top = длине скролла с вычетом ширины скрола
-        const mains = (this.main.nextElementSibling as HTMLElement)
+        const mains = (this.main.lastElementChild as HTMLElement)
         mains.style.marginTop = (this.windthScrollWrapper) + 'px'
     }
     private positionCursorHandler = (event: MouseEvent) => {
@@ -98,16 +98,14 @@ class HorizontalScrolling {
             el.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
     }
     private scrollLoop = () => {
-        console.log(window.innerHeight , this.scrollY)
         // проверяем пересечение с первым фреймом
         if(window.innerHeight > this.scrollY)
-            this.setTranslate((window.pageYOffset * -0.5 + (this.paralaxImg.offsetHeight/2 + 60)), (window.pageYOffset * 0.05 - 220), this.paralaxImg);
-        requestAnimationFrame(this.scrollLoop);
+            this.setTranslate((window.pageYOffset * -0.61), (window.pageYOffset * 0.05), this.paralaxImg)
     }
     eventListenerHandler = () => {
         this.resizeHandler()
         this.horizontalScrollingHandler()
-        window.addEventListener("DOMContentLoaded", this.scrollLoop);
+        window.addEventListener("scroll", this.scrollLoop);
         window.addEventListener('resize', this.resizeHandler)
         window.addEventListener('scroll', this.horizontalScrollingHandler)
         window.addEventListener('mousemove', this.positionCursorHandler)
