@@ -20,8 +20,9 @@
 
 .header__text {
     font-weight: 100;
-    margin-left: -13px;
-    @include text(18px, 'Helvetica', $gray, 0.012em);
+    margin-left: -11px;
+    margin-bottom: 3px;
+    @include text(18px, 'Helvetica', $gray, -0.015em);
 }
 
 .header__container_logo {
@@ -39,14 +40,15 @@
 }
 
 .header__button_contacts {
+
     @include button(10px, 30px);
-    @include text(18px, 'Helvetica', black, 0.019em);
+    @include text(18px, 'Helvetica', black, -0.015em);
 }
 
 .header__button_burger {
-    margin: 0 25px;
+    margin: 0 26px;
     position: relative;
-    @include button(21.5px, 32px);
+    @include button(21.5px, 31px);
     &::before,
     &::after {
         content: '';
