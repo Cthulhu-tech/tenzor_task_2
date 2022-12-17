@@ -1,5 +1,133 @@
 @import '../../style/mixin.scss';
+@import '../../style/color.scss';
 
 .footer {
-    @include block(100%, 603px);
+    position: relative;
+    flex-direction: column;
+    background-color: black;
+    @include block(100%, 50vh);
+    padding: 80px 47px 49px 47px;
+}
+
+.footer_title {
+    @include text(clamp(16px, 9em, 30px), 'Helvetica', white, 0em);
+}
+
+.info_data {
+    display: flex;
+    margin-top: 0.1%;
+    margin-left: 14%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section_info_phone {
+    margin-top: -0.3%;
+}
+
+.section_info_site_address {
+    margin-top: -0.2%;
+    margin-left: 8.6%;
+}
+
+.wrapper_section_info_address {
+    margin-top: 6.6%;
+}
+
+.sub_section_info_link {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.footer__link {
+    text-transform: uppercase;
+    @include text(16px, 'Helvetica', $yellow, 0em);
+}
+
+.link_youtube {
+    margin-left: 8.5%;
+}
+
+.link_vk {
+    margin-left: 11.4%;
+}
+
+.link_instagram {
+    margin-left: 11.6%;
+}
+
+.info_description {
+    @include text(16px, 'Helvetica', white, 0em);
+}
+
+.grid_area {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.section_info_link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section_info {
+    padding-bottom: 1.9%;
+    border-bottom: 2px solid $yellow;
+}
+
+.wrapper_link {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+}
+
+.sub_section_info__site_info {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.sub_section_info__site_info.menu {
+    margin-right: 7.8%;
+}
+.sub_section_info__site_info.document {
+    margin-right: 1%;
+}
+
+.sub_section_info {
+   margin-top: 9.8%;
+}
+
+.link_info_description {
+    margin-top: 7%;
+    margin-bottom: -2.3%;
+    text-decoration: none;
+}
+
+.link_document {
+    text-align: start;
+    margin-right: 10%;
+}
+
+.copyright {
+    text-align: end;
+    margin: 4.5% 26.1% 5.5% 0;
+    @include text(16px, 'Helvetica', $gray, 0em);
+}
+
+.wrapper_footer_logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer_logo_title {
+    color: white;
+    margin-top: 3.4%;
+}
+
+.wrapper_footer_logo {
+    margin-top: 2%;
+    margin-right: 37%;
 }
