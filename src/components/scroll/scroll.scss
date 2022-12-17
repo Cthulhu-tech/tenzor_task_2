@@ -101,14 +101,6 @@
     @include text(18px, 'Helvetica', black, -0.015em);
 }
 
-.title {
-    left: -3px;
-    line-height: 98%;
-    position: inherit;
-    margin-bottom: 30px;
-    @include text(clamp(24px, 10vw, 64px), 'HandelGothic TL', black, -0.03em);
-}
-
 .img {
     width: 100%;
 }

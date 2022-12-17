@@ -50,7 +50,7 @@ class HorizontalScrolling {
         this.updateScrollWrapperWidth()
         this.updateHeightBody()
         // устанавливаем максимальную возможность скролла с учетом количества вложенных элементов в скролл контейнер и общего количества контейнеров внутри тега body с вычетом ширины скрола
-        document.body.style.height = (this.windthScrollWrapper + this.allHeightBody) + 'px'
+        document.body.style.height = (this.windthScrollWrapper + this.allHeightBody + window.innerHeight) + 'px'
         // устанавливаем следующему элементу за main контейнером margin-top = длине скролла с вычетом ширины скрола
         const mains = (this.main.lastElementChild as HTMLElement)
         mains.style.marginTop = (this.windthScrollWrapper) + 'px'
