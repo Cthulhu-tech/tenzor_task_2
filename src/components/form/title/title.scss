@@ -1,3 +1,48 @@
-.wrapper_form_title {
+@import '../../../style/mixin.scss';
+@import '../../../style/color.scss';
+
+.article_form_title {
+    margin: 10% 0;
+    display: flex;
     min-height: 50vh;
+    position: relative;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wrapper_form_title {
+    position: relative;
+}
+
+.form_title {
+    color: black;
+    max-width: 50%;
+    margin-top: -0.8%;
+    margin-left: 4.5%;
+}
+
+.form_title_animation_line {
+    left: -3.3%;
+    margin-top: -26px;
+    position: absolute;
+    &:before {
+        width: 59.6%;
+        animation: none;
+    }
+    &:after {
+        left: 59.6%;
+        animation: none;
+    }
+}
+
+.form_button {
+    right: 2.4%;
+    bottom: 5.6%;
+    position: absolute;
+    text-transform: uppercase;
+    @include button(34px, 133px, $yellow, $yellow);
+    padding-right: 148px;
+    padding-left: 120px;
+    @include text(clamp(14px, 8vw, 20px), 'Helvetica', white, -0.015em);
 }
