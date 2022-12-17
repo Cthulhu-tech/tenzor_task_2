@@ -42,6 +42,7 @@ class HorizontalScrolling {
         // получаем длину всех элементов внутри обертки скролл контейнера для того чтобы получить длину скролл контейнера
         Array.from(document.body.children).forEach((node) => {
             // получаем общую ширину всех контейнеров
+            console.log(node,(node as HTMLElement).offsetHeight)
             this.allHeightBody += (node as HTMLElement).offsetHeight
         })
     }
@@ -49,8 +50,10 @@ class HorizontalScrolling {
         // обнуляем длину скролла и вычитаем
         this.updateScrollWrapperWidth()
         this.updateHeightBody()
+        // получаем стили чтобы в последующем получить отступы у элемента
+        const style = getComputedStyle(this.main.lastElementChild as HTMLElement)
         // устанавливаем максимальную возможность скролла с учетом количества вложенных элементов в скролл контейнер и общего количества контейнеров внутри тега body с вычетом ширины скрола
-        document.body.style.height = (this.windthScrollWrapper + this.allHeightBody + window.innerHeight) + 'px'
+        document.body.style.height = (this.windthScrollWrapper + this.allHeightBody + window.innerHeight) - parseInt(style.getPropertyValue('margin-top')) + 'px'
         // устанавливаем следующему элементу за main контейнером margin-top = длине скролла с вычетом ширины скрола
         const mains = (this.main.lastElementChild as HTMLElement)
         mains.style.marginTop = (this.windthScrollWrapper) + 'px'
