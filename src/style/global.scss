@@ -56,3 +56,26 @@ body {
     position: relative;
     flex-direction: column;
 }
+
+.title_big {
+    margin-top: 2px;
+    margin-left: 3px;
+    text-align: start;
+    line-height: 98.49%;
+    @include text(clamp(24px, 10vw, 96px), 'HandelGothic TL', white, -0.03em);
+}
+
+.title_medium {
+    left: -3px;
+    line-height: 98%;
+    position: inherit;
+    margin-bottom: 30px;
+    @include text(clamp(24px, 10vw, 64px), 'HandelGothic TL', black, -0.03em);
+}
+
+.button_big {
+    margin: 73px 8px 12px;
+    text-transform: uppercase;
+    @include button(36px, 98px, white, black);
+    @include text(clamp(14px, 8vw, 20px), 'Helvetica', black, -0.015em);
+}
