@@ -80,7 +80,7 @@
     grid-template-columns: 1fr 1fr minmax(280px, 956px);
 }
 
-.sub_wrapper_text {
+.sub_wrapper_description {
     display: flex;
     min-height: 150px;
     margin-bottom: 8px;
@@ -94,7 +94,7 @@
     margin-bottom: 1px;
 }
 
-.text {
+.description {
     margin-left: 3px;
     line-height: 21px;
     text-transform: uppercase;

@@ -4,7 +4,7 @@
 .section_form {
     position: relative;
     padding: 52px 48px 48px 45px;
-    @include block(clamp(280px, 100%, 1440px), 2603px);
+    @include block(clamp(280px, 100%, 1440px), 100vh);
     flex-direction: column;
 }
 

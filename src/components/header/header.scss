@@ -25,14 +25,14 @@
     @include text(18px, 'Helvetica', $gray, -0.015em);
 }
 
-.header__container_logo {
+.wrapper_logo {
     display: flex;
     align-items: center;
     margin: 10px 0 0 75px;
     max-width: clamp(320px, 100%, 600px);
 }
 
-.header__container_button {
+.wrapper_button {
     display: flex;
     align-items: center;
     margin: 0 49px 10px 0;
