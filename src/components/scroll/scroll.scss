@@ -3,10 +3,9 @@
 
 .scroll {
     z-index: 6;
-    width: 100%;
     cursor: none;
-    min-height: 100vh;
     position: relative;
+    @include block(clamp(280px, 100%, 1440px), 100vh)
 }
 
 .scroll_wrapper {

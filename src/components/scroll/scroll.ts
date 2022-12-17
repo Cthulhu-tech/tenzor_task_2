@@ -11,6 +11,7 @@ class HorizontalScrolling {
     private main: HTMLElement
     private cursor: HTMLDivElement
     private paralaxImg: HTMLImageElement
+    private scroll: HTMLDivElement
     constructor() {
         this.scrollY = 0
         this.allHeightBody = 0
@@ -18,6 +19,7 @@ class HorizontalScrolling {
         this.initialPosition = 0
         this.maxScrollPosition = 0
         this.windthScrollWrapper = 0
+        this.scroll = document.querySelector('.scroll') as HTMLDivElement
         this.paralaxImg = document.querySelector(".paralax_background") as HTMLImageElement
         this.cursor = document.querySelector('.cursor') as HTMLDivElement
         this.subContainerGreetings = document.querySelector('.sub_container_greetings') as HTMLDivElement
@@ -76,12 +78,13 @@ class HorizontalScrolling {
         if (this.scrollY > this.initialPosition && this.scrollY < this.maxScrollPosition) {
             this.scrollWrapper.style.top = '0'
             this.scrollWrapper.style.position = "fixed"
-            this.scrollWrapper.style.left = -(this.scrollY - this.initialPosition) + 'px'
+            // складываем положение прокрутки и вычетаем начальное положение и прибавляем отклонение от левой части экрана, для сохранения правильного положения на больших экранах
+            this.scrollWrapper.style.left = -(this.scrollY - this.initialPosition) + this.scroll.getBoundingClientRect().x + 'px'
         }
         // проверяем чтобы позиция скролла окна была меньше минимально разрешенной начальной позиции скролла
         if (this.scrollY <= this.initialPosition) {
-            // устанавливаем позицию скролл контейнера в 0
-            this.scrollWrapper.style.left = '0'
+            // устанавливаем позицию скролл контейнера относительно положения main контейнера (для экранов больше 1440px)
+            this.scrollWrapper.style.left = this.scroll.getBoundingClientRect().x + 'px'
             // устанавливаем позицию скролла в начальное положение
             this.scrollWrapper.style.position = "initial"
         }
