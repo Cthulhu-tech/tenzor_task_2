@@ -3,7 +3,7 @@
 
 .section_form {
     position: relative;
-    padding: 52px 48px 48px 45px;
+    padding: 52px 48px 4px 45px;
     @include block(clamp(280px, 100%, 1440px), 100vh);
     flex-direction: column;
 }
@@ -14,4 +14,110 @@
     position: relative;
     flex-direction: column;
     border-top: 2px solid $whiteBorder;
+}
+
+.wrapper_form {
+    width: 100%;
+    display: flex;
+    min-height: 75vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 56px 106px 72px 108px;
+}
+
+.sub_wrapper_form {
+    width: 100%;
+    display: flex;
+    min-height: 494px;
+    border-radius: 62px;
+    flex-direction: column;
+    padding: 5.5% 2% 0% 6.3%;
+    align-items: flex-start;
+    border: 1px solid black;
+}
+
+.form_info {
+    margin-top: 2.9%;
+    margin-left: 0.1%;
+    @include text(16px, 'Helvetica', $gray, 0em);
+}
+
+.sub_section_form_title {
+    @include text(clamp(16px, 9em, 30px), 'Helvetica', $yellow, -.015em);
+}
+
+.sub_section_form_regulations {
+    margin-top: 2.1%;
+}
+
+.sub_sub_wrapper_form {
+    width: 100%;
+    display: flex;
+    margin-top: 0.7%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form_description {
+    @include text(clamp(16px, 9em, 20px), 'Helvetica', black, -.015em);
+}
+
+.form_input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding-top: 38px;
+    position: relative;
+    padding-bottom: 6px;
+    border-bottom: 2px solid $whiteBorder;
+}
+
+.wrapper_input {
+    width: 51.1%;
+    position: relative;
+    &::before {
+        top: 20px;
+        z-index: 1;
+        position: absolute;
+        @include text(12px, 'Helvetica', $whiteBorder, -.015em);
+    }
+}
+
+.wrapper_form_name {
+    &:before {
+        content: "Ваше имя";
+    }
+}
+
+.wrapper_form_phone {
+    &:before {
+        content: "Ваш телефон"; 
+    }
+}
+
+.wrapper_form_email {
+    &:before {
+        content: "Ваш E-mail";      
+    }
+}
+
+.wrapper_form_question {
+    &:before {
+        content: "Ваш вопрос";
+    }
+}
+
+.wrapper_form_button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form_button_question {
+    margin-top: 16px;
+    margin-right: -4px;
+    @include button(32px, 98px, black, white);
+    padding-top: 32px;
+    padding-bottom: 36px;
+    @include text(clamp(14px, 8vw, 20px), 'Helvetica', white, -0.015em);
 }
