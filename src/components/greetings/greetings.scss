@@ -32,16 +32,10 @@
 }
 
 .container_greetings__title {
-    margin-top: 2px;
-    margin-left: 3px;
-    text-align: start;
-    line-height: 98.49%;
-    @include text(clamp(24px, 10vw, 96px), 'HandelGothic TL', white, -0.03em);
-
     animation: 5s invertColor forwards;
 }
 
-.container_greetings__text {
+.container_greetings__description {
     width: 100%;
     font-weight: 400;
     text-align: start;
@@ -106,10 +100,5 @@
 }
 
 .container_greetings__button {
-    margin: 73px 8px 12px;
-    text-transform: uppercase;
-    @include button(36px, 98px, white, black);
-    @include text(clamp(14px, 8vw, 20px), 'Helvetica', black, -0.015em);
-
     animation: 5s invertButtonColor forwards;
 }
