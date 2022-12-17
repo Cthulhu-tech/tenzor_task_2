@@ -79,3 +79,7 @@ body {
     @include button(36px, 98px, white, black);
     @include text(clamp(14px, 8vw, 20px), 'Helvetica', black, -0.015em);
 }
+
+.title {
+    @include text(30px, 'HandelGothic TL', black, -0.03em);
+}
