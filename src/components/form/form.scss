@@ -10,20 +10,8 @@
 
 .wrapper_benefits {
     width: 100%;
-    position: relative;
-    border-top: 2px solid $whiteBorder;
-}
-
-.wrapper_form_text {
     display: flex;
-    margin-top: 7em;
-    margin-right: 3.3em;
-    align-items: flex-end;
+    position: relative;
     flex-direction: column;
-}
-
-.section__form__text {
-    margin-top: 32px;
-    margin-right: -4px;
-    @include text(clamp(18px, 10em, 30px), 'Helvetica', black, -0.01em);
+    border-top: 2px solid $whiteBorder;
 }
