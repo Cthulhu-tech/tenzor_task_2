@@ -105,6 +105,8 @@ class HorizontalScrolling {
             el.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
     }
     private scrollLoop = () => {
+        const firstFrameX = this.paralaxImg.offsetHeight * .33
+        const firstFrameY = (this.paralaxImg.offsetHeight * .32 + window.innerHeight)
         // проверяем пересечение с первым фреймом
         if(window.innerHeight > this.scrollY)
             this.setTranslate((window.pageYOffset * -0.52), (window.pageYOffset * 1.01), this.paralaxImg)
