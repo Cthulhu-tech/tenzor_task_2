@@ -28,8 +28,9 @@ body {
 .paralax_layer {
     inset: 0;
     z-index: 2;
+    width: 200vw;
     position: absolute;
-    background-size: cover;
+    background-size: auto 140%;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
