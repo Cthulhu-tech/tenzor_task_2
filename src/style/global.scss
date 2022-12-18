@@ -25,33 +25,21 @@ body {
     overflow-y: hidden;
 }
 
-.parallax {
+.paralax_layer {
     inset: 0;
-    z-index: -1;
-    transition: .4s;
+    z-index: 2;
     position: absolute;
-}
-
-.parallax_layer {
-    inset: 0;
-    position: absolute;
-}
-
-.paralax_background {
-    top: 0;
-    left: 0;
-    & > img {
-        width: 100%;
-        &:nth-child(1) {
-            transform: translate3d(45%, -25%, 0px) rotate(0.0001deg) scale(1.1);
-        }
-    }
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-image: url("../assets/backgroundParalax/background.png");
 }
 
 .main {
-    max-width: 1440px;
     display: flex;
     margin: 0 auto;
+    max-width: 1440px;
     position: relative;
     flex-direction: column;
 }

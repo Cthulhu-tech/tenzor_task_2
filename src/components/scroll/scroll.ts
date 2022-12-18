@@ -20,11 +20,11 @@ class HorizontalScrolling {
         this.initialPosition = 0
         this.maxScrollPosition = 0
         this.windthScrollWrapper = 0
+        this.scrollWrapper = document.querySelector('.scroll_wrapper') as HTMLDivElement
         this.scroll = document.querySelector('.scroll') as HTMLDivElement
-        this.paralaxImg = document.querySelector(".paralax_background") as HTMLImageElement
+        this.paralaxImg = document.querySelector(".paralax_layer") as HTMLImageElement
         this.cursor = document.querySelector('.cursor') as HTMLDivElement
         this.subContainerGreetings = document.querySelector('.sub_container_greetings') as HTMLDivElement
-        this.scrollWrapper = document.querySelector('.scroll_wrapper') as HTMLDivElement
         this.header = document.querySelector('.header') as HTMLElement
         this.main = document.querySelector('.main') as HTMLElement
         this.footer = document.querySelector('.footer') as HTMLElement
@@ -105,11 +105,9 @@ class HorizontalScrolling {
             el.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
     }
     private scrollLoop = () => {
-        const firstFrameX = this.paralaxImg.height * .33
-        const firstFrameY = (this.paralaxImg.height * .32 + window.innerHeight)
         // проверяем пересечение с первым фреймом
         if(window.innerHeight > this.scrollY)
-            this.setTranslate((window.pageYOffset * -0.52 + firstFrameX), (window.pageYOffset * 1.01 - firstFrameY), this.paralaxImg)
+            this.setTranslate((window.pageYOffset * -0.52), (window.pageYOffset * 1.01), this.paralaxImg)
     }
     eventListenerHandler = () => {
         this.scrollLoop()
