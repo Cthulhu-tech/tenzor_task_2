@@ -12,6 +12,7 @@ class HorizontalScrolling {
     private cursor: HTMLDivElement
     private paralaxImg: HTMLImageElement
     private scroll: HTMLDivElement
+    private footer: HTMLElement
     constructor() {
         this.scrollY = 0
         this.allHeightBody = 0
@@ -26,6 +27,7 @@ class HorizontalScrolling {
         this.scrollWrapper = document.querySelector('.scroll_wrapper') as HTMLDivElement
         this.header = document.querySelector('.header') as HTMLElement
         this.main = document.querySelector('.main') as HTMLElement
+        this.footer = document.querySelector('.footer') as HTMLElement
     }
     private updateScrollWrapperWidth = () => {
         this.windthScrollWrapper = 0 - this.scrollWrapper.offsetWidth
@@ -42,7 +44,6 @@ class HorizontalScrolling {
         // получаем длину всех элементов внутри обертки скролл контейнера для того чтобы получить длину скролл контейнера
         Array.from(document.body.children).forEach((node) => {
             // получаем общую ширину всех контейнеров
-            console.log(node,(node as HTMLElement).offsetHeight)
             this.allHeightBody += (node as HTMLElement).offsetHeight
         })
     }
@@ -104,11 +105,14 @@ class HorizontalScrolling {
             el.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
     }
     private scrollLoop = () => {
+        const firstFrameX = this.paralaxImg.height * .33
+        const firstFrameY = (this.paralaxImg.height * .32 + window.innerHeight)
         // проверяем пересечение с первым фреймом
         if(window.innerHeight > this.scrollY)
-            this.setTranslate((window.pageYOffset * -0.61), (window.pageYOffset * 0.05), this.paralaxImg)
+            this.setTranslate((window.pageYOffset * -0.52 + firstFrameX), (window.pageYOffset * 1 - firstFrameY), this.paralaxImg)
     }
     eventListenerHandler = () => {
+        this.scrollLoop()
         this.resizeHandler()
         this.horizontalScrollingHandler()
         window.addEventListener("scroll", this.scrollLoop);

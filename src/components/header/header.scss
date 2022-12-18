@@ -9,6 +9,13 @@
     justify-content: space-between;
 }
 
+.header_wrapper {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: clamp(280px, 100%, 1440px);
+}
+
 .header__title {
     margin-top: -1px;
 }

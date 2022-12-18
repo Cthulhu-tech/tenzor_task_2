@@ -8,6 +8,11 @@
     flex-direction: column;
 }
 
+.wrapper_footer {
+    margin: 0 auto;
+    width: clamp(280px, 100%, 1440px);
+}
+
 .wrapper_benefits {
     width: 100%;
     display: flex;
@@ -31,9 +36,10 @@
     min-height: 494px;
     border-radius: 62px;
     flex-direction: column;
-    padding: 5.5% 2% 0% 6.3%;
     align-items: flex-start;
+    padding: 5.5% 2% 0% 6.3%;
     border: 1px solid black;
+    background-color: white;
 }
 
 .form_info {
@@ -121,3 +127,4 @@
     padding-bottom: 36px;
     @include text(clamp(14px, 8vw, 20px), 'Helvetica', white, -0.015em);
 }
+
