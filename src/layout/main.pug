@@ -9,12 +9,11 @@ html(lang="ru")
         link(rel="stylesheet", href="css/style.css")
     body
     include ../components/header/header
-
-    div(class="parallax")
-        div(class="pralax_layer paralax_background")
-            img(src="../assets/backgroundParalax/firstFrame.png", alt="background")
-
+    include ../components/greetings/greetings
     main(class="main")
+        section(class="parallax")
+            div(class="paralax_layer")
+                img(src="../assets/backgroundParalax/background.png", alt="background" class="paralax_background")
         block content
 
     include ../components/footer/footer
