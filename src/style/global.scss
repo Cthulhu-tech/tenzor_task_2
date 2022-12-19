@@ -29,8 +29,9 @@ body {
     inset: 0;
     z-index: 2;
     width: 200vw;
+    min-height: auto;
     position: absolute;
-    background-size: auto 140%;
+    background-size: auto 160%;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
