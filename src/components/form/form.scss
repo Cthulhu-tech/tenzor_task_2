@@ -128,3 +128,10 @@
     @include text(clamp(14px, 8vw, 20px), 'Helvetica', white, -0.015em);
 }
 
+.input_error {
+    border-color: red;
+}
+
+.input_filed {
+    border-color: $yellow;
+}

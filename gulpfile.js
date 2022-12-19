@@ -51,6 +51,7 @@ function scripts() {
       sourceMap: true,
       watch: true,
       removeComments: true,
+      outFile: 'script.js'
    }))
    .pipe(gulp.dest('resources/js'));
 }
