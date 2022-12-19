@@ -39,7 +39,7 @@ class Form {
     }
     private inputPhoneHandler = (event: Event) => {
         const target = (event.target as HTMLInputElement)
-        // удаляем все что не является цифрами и создаем массив данных с номером телефона ['00000000000','0', '000', '000', '00', '00']
+        // удаляем все что не является цифрами и создаем массив данных с номером телефона ['0 000 000 00 00','0', '000', '000', '00', '00']
         const value = target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/) as RegExpMatchArray
         // создаем переменную сообщения
         let inputMask = ''
