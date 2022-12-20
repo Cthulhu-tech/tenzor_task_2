@@ -6,6 +6,10 @@
     padding: 52px 48px 4px 45px;
     @include block(clamp(280px, 100%, 1440px), 100vh);
     flex-direction: column;
+    @media  screen and (max-width: 1050px) {
+        padding-left: 24px;
+        padding-right: 19px;
+    }
 }
 
 .wrapper_footer {
@@ -28,6 +32,9 @@
     flex-direction: column;
     justify-content: flex-start;
     padding: 56px 106px 72px 108px;
+    @media  screen and (max-width: 1050px) {
+        padding: 0 14px;
+    }
 }
 
 .sub_wrapper_form {
@@ -40,20 +47,41 @@
     padding: 5.5% 2% 0% 6.3%;
     border: 1px solid black;
     background-color: white;
+    @media  screen and (max-width: 1050px) {
+        min-height: 446px;
+    }
+    @media  screen and (max-width: 780px) {
+        padding: 66px 33px 0 33px;
+    }
 }
 
 .form_info {
     margin-top: 2.9%;
     margin-left: 0.1%;
     @include text(16px, 'Helvetica', $gray, 0em);
+    @media  screen and (max-width: 1300px) {
+        font-size: 12px;
+    }
+    @media  screen and (max-width: 1050px) {
+        display: none;
+    }
 }
 
 .sub_section_form_title {
     @include text(clamp(16px, 9em, 30px), 'Helvetica', $yellow, -.015em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 24px;
+        margin-top: 6px;
+        margin-left: 9px;
+    }
 }
 
 .sub_section_form_regulations {
     margin-top: 2.1%;
+    @media  screen and (max-width: 1050px) {
+        margin-top: 30px;
+        margin-left: 9px;
+    }
 }
 
 .sub_sub_wrapper_form {
@@ -66,6 +94,16 @@
 
 .form_description {
     @include text(clamp(16px, 9em, 20px), 'Helvetica', black, -.015em);
+    @media  screen and (max-width: 1300px) {
+        font-size: 18px;
+    }
+    @media  screen and (max-width: 1050px) {
+        font-size: 16px;
+        letter-spacing: -0.01em;
+    }
+    @media  screen and (max-width: 780px) {
+        font-size: 14px;
+    }
 }
 
 .form_input {
@@ -76,6 +114,13 @@
     position: relative;
     padding-bottom: 6px;
     border-bottom: 2px solid $whiteBorder;
+    @media  screen and (max-width: 1050px) {
+        border: none;
+        @include text(16px, 'Helvetica', black, -.01em);
+    }
+    @media  screen and (max-width: 780px) {
+        font-size: 14px;
+    }
 }
 
 .wrapper_input {
@@ -87,11 +132,23 @@
         position: absolute;
         @include text(12px, 'Helvetica', $whiteBorder, -.015em);
     }
+    @media  screen and (max-width: 1300px) {
+        width: 48%;
+    }
+    @media  screen and (max-width: 1050px) {
+        margin-left: 1%;
+        &::before {
+            display: none;
+        }
+    }
 }
 
 .wrapper_form_name {
     &:before {
         content: "Ваше имя";
+    }
+    @media  screen and (max-width: 1050px) {
+        margin-top: 0.5%;
     }
 }
 
@@ -99,11 +156,17 @@
     &:before {
         content: "Ваш телефон"; 
     }
+    @media  screen and (max-width: 1050px) {
+        margin-top: -.3%;
+    }
 }
 
 .wrapper_form_email {
     &:before {
         content: "Ваш E-mail";      
+    }
+    @media  screen and (max-width: 1050px) {
+        margin-top: -.3%;
     }
 }
 
@@ -111,12 +174,18 @@
     &:before {
         content: "Ваш вопрос";
     }
+    @media  screen and (max-width: 1050px) {
+        margin-top: -.3%;
+    }
 }
 
 .wrapper_form_button {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    @media  screen and (max-width: 990px) {
+        flex-direction: column;
+    }
 }
 
 .form_button_question {
@@ -126,6 +195,24 @@
     padding-top: 32px;
     padding-bottom: 36px;
     @include text(clamp(14px, 8vw, 20px), 'Helvetica', white, -0.015em);
+    @media  screen and (max-width: 1300px) {
+        font-size: 16px;
+    }
+    @media  screen and (max-width: 1050px) {
+        font-size: 16px;
+        margin-right: .65%;
+        @include button(28px, 97px, black, white);
+    }
+    @media  screen and (max-width: 990px) {
+        margin: 25px auto;
+    }
+    @media  screen and (max-width: 780px) {
+        font-size: 14px;
+        @include button(19px, 107px, black, white);
+    }
+    @media  screen and (max-width: 520px) {
+        @include button(19px, 28%, black, white);
+    }
 }
 
 .input_error {
