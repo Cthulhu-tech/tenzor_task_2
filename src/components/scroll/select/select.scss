@@ -7,10 +7,16 @@
 .article_select__title {
     margin-left: -3px;
     margin-bottom: 109px;
+    @media  screen and (max-width: 1050px) {
+        margin-bottom: 8px;
+    }
 }
 
 .sub_sub_wrapper_select {
     left: -3px;
-    bottom: -27px;
+    bottom: 0px;
     position: absolute;
+    @media  screen and (max-width: 1050px) {
+        position: relative;
+    }
 }
