@@ -9,40 +9,101 @@
     align-items: flex-end;
     flex-direction: column;
     justify-content: center;
+    @media  screen and (max-width: 1050px) {
+        margin: 30.5% 0;
+    }
 }
 
 .wrapper_form_title {
     position: relative;
+    @media  screen and (max-width: 1050px) {
+        margin-left: -0.8%;
+        margin-top: -.8%;
+    }
+    @media  screen and (max-width: 780px) {
+        width: 100%;
+    }
+    @media screen and (max-width: 480px){
+        margin: 138px 0 72px 0;
+    }
+}
+
+.form_title_animation_line {
+    width: 100%;
+    position: relative;
+    margin-left: -20%;
+    margin-bottom: 2.4%;
+    &:before {
+        width: 96%;
+        animation: none;
+    }
+    &:after {
+        left: 96%;
+        animation: none;
+    }
+    @media  screen and (max-width: 1050px) {
+        margin-bottom: -2%;
+        &:before {
+            width: 91%;
+            animation: none;
+        }
+        &:after {
+            left: 91%;
+            animation: none;
+        }
+    }
 }
 
 .form_title {
     color: black;
     max-width: 50%;
-    margin-top: -0.8%;
+    margin-top: 3.8%;
     margin-left: 4.5%;
+    @media  screen and (max-width: 1050px) {
+        margin-top: 4%;
+        margin-bottom: 0;
+    }
+    @media  screen and (max-width: 780px) {
+        margin: 138px 0 0;
+    }
 }
 
-.form_title_animation_line {
-    left: -3.3%;
-    margin-top: -26px;
-    position: absolute;
-    &:before {
-        width: 59.6%;
-        animation: none;
+.form_title_pc {
+    @media  screen and (max-width: 480px) {
+        display: none;
     }
-    &:after {
-        left: 59.6%;
-        animation: none;
+}
+
+.form_title_mobile {
+    display: none;
+    @media  screen and (max-width: 480px) {
+        display: block;
+        margin: 0;
     }
 }
 
 .form_button {
-    right: 2.3%;
-    bottom: 5.6%;
-    position: absolute;
     text-transform: uppercase;
     @include button(34px, 133px, $yellow, $yellow);
     padding-right: 148px;
     padding-left: 118px;
+    margin-right: 3%;
+    margin-top: -2.5%;
     @include text(clamp(14px, 8vw, 20px), 'Helvetica', white, -0.015em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 16px;
+        margin-right: 8.1%;
+        margin-top: 23px;
+        @include button(26px, 105px, $yellow, $yellow);
+    }
+    @media  screen and (max-width: 780px) {
+        margin: 72px auto;
+        @include button(19px, 84px, $yellow, $yellow);
+    }
+}
+
+.sub_article_form_title {
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
