@@ -5,7 +5,7 @@
     z-index: 6;
     cursor: none;
     position: relative;
-    @include block(clamp(280px, 100%, 1440px), 100vh)
+    @include block(clamp(280px, 100%, 1440px), 100vh);
 }
 
 .scroll_wrapper {
@@ -24,7 +24,7 @@
     align-items: normal;
     flex-direction: column;
     justify-content: center;
-    min-width: clamp(280px, 80%, 954px);
+    min-width: clamp(588px, 80%, 954px);
 }
 
 .sub_scroll_wrapper {
@@ -47,7 +47,19 @@
 .main__title {
     line-height: 98%;
     padding-left: 25px;
-    @include text(clamp(24px, 10vw, 96px), 'HandelGothic TL', black, -0.03em);
+    @include text(96px, 'HandelGothic TL', black, -0.03em);
+    @media  screen and (max-width: 1300px) {
+        font-size: 78px;
+    }
+    @media  screen and (max-width: 1050px) {
+        font-size: 64px;
+    }
+    @media  screen and (max-width: 990px) {
+        font-size: 48px;
+    }
+    @media  screen and (max-width: 420px) {
+        font-size: 45px;
+    }
 }
 
 .cursor {
@@ -68,8 +80,11 @@
     background-color: white;
     justify-content: space-between;
     border: 1px solid $whiteBorder;
-    @include block(clamp(280px, 100%, 956px), 802px);
+    @include block(clamp(280px, 100%, 956px), clamp(100px, calc(100% - 126px), 802px));
     margin-top: -10px;
+    @media  screen and (max-width: 780px) {
+        width: 588px;
+    }
 }
 
 .wrapper_grid {
@@ -99,6 +114,12 @@
     line-height: 21px;
     text-transform: uppercase;
     @include text(18px, 'Helvetica', black, -0.015em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 16px;
+    }
+    @media  screen and (max-width: 420px) {
+        font-size: 14px;
+    }
 }
 
 .img {
@@ -118,4 +139,12 @@
     justify-content: center;
     height: max(100px, 218px);
     width: clamp(280px, 100%, 472px);
+    @media  screen and (max-width: 1050px) {
+        height: max(100px, 176px);
+        width: clamp(280px, 100%, 381px);
+    }
+    @media  screen and (max-width: 1050px) {
+        height: 162px;
+        width: 351px;
+    }
 }
