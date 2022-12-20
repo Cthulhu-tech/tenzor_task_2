@@ -26,13 +26,11 @@ body {
 }
 
 .paralax_layer {
-    inset: 0;
-    z-index: 2;
-    width: 200vw;
-    min-height: auto;
+    z-index: -1;
+    width: 160vw;
+    height: 160vh;
     position: absolute;
-    background-size: auto 160%;
-    background-position: center;
+    background-size: auto 100%;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-image: url("../assets/backgroundParalax/background.png");
@@ -52,6 +50,13 @@ body {
     text-align: start;
     line-height: 98.49%;
     @include text(clamp(24px, 10vw, 96px), 'HandelGothic TL', white, -0.03em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 64px;
+    }
+    @media  screen and (max-width: 780px) {
+        font-size: 45px;
+        text-align: center;
+    }
 }
 
 .title_medium {
@@ -59,16 +64,36 @@ body {
     line-height: 98%;
     position: inherit;
     margin-bottom: 30px;
-    @include text(clamp(24px, 10vw, 64px), 'HandelGothic TL', black, -0.03em);
+    @include text(64px, 'HandelGothic TL', black, -0.03em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 48px;
+    }
+    @media  screen and (max-width: 780px) {
+        font-size: 40px;
+    }
 }
 
 .button_big {
-    margin: 73px 8px 12px;
     text-transform: uppercase;
     @include button(36px, 98px, white, black);
     @include text(clamp(14px, 8vw, 20px), 'Helvetica', black, -0.015em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 16px;
+        text-align: center;
+        @include button(28px, 75px, white, black);
+    }
+    @media  screen and (max-width: 420px) {
+        font-size: 14px;
+        text-align: center;
+    }
 }
 
 .title {
     @include text(30px, 'HandelGothic TL', black, -0.03em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 20px;
+    }
+    @media  screen and (max-width: 420px) {
+        font-size: 16px;
+    }
 }
