@@ -1,3 +1,4 @@
+type LastPositionType = {x: number, y: number, z: number}
 class HorizontalScrolling {
     private scrollY: number
     private allHeightBody: number
@@ -13,7 +14,9 @@ class HorizontalScrolling {
     private paralaxImg: HTMLImageElement
     private scroll: HTMLDivElement
     private footer: HTMLElement
+    private lastPosition: LastPositionType
     constructor() {
+        this.lastPosition = {x: 0, y: 0, z: 0}
         this.scrollY = 0
         this.allHeightBody = 0
         this.rightPosition = 0
@@ -101,20 +104,42 @@ class HorizontalScrolling {
             this.scrollWrapper.style.top = (this.maxScrollPosition - (window.innerHeight + this.header.offsetHeight)) + 'px'
         }
     }
-    private setTranslate = (x, y, el) => {
-            el.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
+    private updateLastPosition = (element: HTMLElement) => {
+
+        if(element.style.transform === '') {
+
+            this.lastPosition = {
+                x: 0,
+                y: 0,
+                z: 0
+            };
+
+            return false
+        }
+
+        const values = element.style.transform.split(/\w+\(|\);?/)
+        const transform = values[1].split(/,\s?/g).map(numStr => parseInt(numStr))
+
+        this.lastPosition = {
+            x: transform[0],
+            y: transform[1],
+            z: transform[2]
+        };
+    }
+    private setTranslate = (x, y, element) => {
+        element.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
     }
     private scrollLoop = () => {
-        const firstFrameX = this.paralaxImg.offsetHeight * -.33
-        const firstFrameY = (this.paralaxImg.offsetHeight * .2)
-        // проверяем пересечение с первым фреймом
-        if(window.innerHeight > this.scrollY)
-            this.setTranslate((window.pageYOffset * -0.68 - firstFrameX), (window.pageYOffset * 1.13 - firstFrameY), this.paralaxImg)
+        const firstFrameX = (window.pageYOffset * -.35 - this.paralaxImg.offsetHeight * -.27)
+        const firstFrameY = (window.pageYOffset * .88 - this.paralaxImg.offsetHeight * .98)
+        this.setTranslate(firstFrameX, firstFrameY, this.paralaxImg)
+        this.updateLastPosition(this.paralaxImg)
+        
     }
     eventListenerHandler = () => {
-        this.scrollLoop()
         this.resizeHandler()
         this.horizontalScrollingHandler()
+        window.addEventListener("DOMContentLoaded", this.scrollLoop)
         window.addEventListener("scroll", this.scrollLoop);
         window.addEventListener('resize', this.resizeHandler)
         window.addEventListener('scroll', this.horizontalScrollingHandler)
