@@ -27,6 +27,9 @@
     margin-right: 3.3em;
     align-items: flex-end;
     flex-direction: column;
+    @media  screen and (max-width: 520px) {
+        margin: 80px auto;
+    }
 }
 
 .service_folder {
@@ -68,6 +71,13 @@
     margin-top: 32px;
     margin-right: -4px;
     @include text(clamp(18px, 10em, 30px), 'Helvetica', black, -0.01em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 16px;
+        margin-top: 22px;
+    }
+    @media  screen and (max-width: 420px) {
+        font-size: 14px;
+    }
 }
 
 .folder_remote_title {
