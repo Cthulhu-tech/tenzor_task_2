@@ -23,31 +23,10 @@
     animation: 4s upAnimation forwards;
 }
 
-.wrapper_text {
-    display: flex;
-    max-width: 850px;
-    margin-top: 48px;
-    align-items: flex-end;
-    flex-direction: column;
-}
-
-.container_greetings__title {
-    animation: 5s invertColor forwards;
-}
-
-.container_greetings__description {
-    width: 100%;
-    font-weight: 400;
-    text-align: start;
-    line-height: 23px;
-    margin: 12px -7px 0;
-    @include text(clamp(14px, 10vw, 20px), 'Helvetica', $yellow, -0.015em);
-
-    animation: 5s invertColor forwards;
-}
-
 .animation_line {
+    left: 0;
     width: 100%;
+    margin-bottom: 0.5%;
     position: absolute;
 
     &::before, &::after {
@@ -58,19 +37,42 @@
 
     &::before {
         height: 2px;
-        width: 46.6%;
-        bottom: -166px;
         background-color: $yellow;
-
-        animation: 5s invertBackgroundColor forwards;
+        @media  screen and (min-width: 1050px) {
+            width: 46.6%;
+            animation: 5s invertBackgroundColor1440 forwards;
+        }
+        @media  screen and (max-width: 1050px) {
+            width: 50%;
+            animation: 5s invertBackgroundColor1050 forwards;
+        }
+        @media  screen and (max-width: 780px) {
+            width: 30%;
+            animation: 5s invertBackgroundColor780 forwards;
+        }
+        @media  screen and (max-width: 520px) {
+            width: 16.6%;
+            animation: 5s invertBackgroundColor520 forwards;
+        }
     }
     &::after{
-        bottom: -169px;
+        bottom: -5px;
         border-left: 4px solid $yellow;
         border-top: 4px solid transparent;
         border-bottom: 4px solid transparent;
 
-        animation: 5s invertArrowColor forwards;
+        @media  screen and (min-width: 1051px) {
+            animation: 5s invertArrowColor1440 forwards;
+        }
+        @media  screen and (max-width: 1050px) {
+            animation: 5s invertArrowColor1050 forwards;
+        }
+        @media  screen and (max-width: 780px) {
+            animation: 5s invertArrowColor780 forwards;
+        }
+        @media  screen and (max-width: 520px) {
+            animation: 5s invertArrowColor520 forwards;
+        }
     }
 }
 
@@ -90,15 +92,84 @@
         height: 53px;
         right: 167px;
         border: 1px solid $yellow;
+        @media  screen and (max-width: 1050px) {
+            display: none;
+        }
     }
-
     &::before{
         top: 54px;
         right: 193px;
         border: 2px solid $yellow;
+        @media  screen and (max-width: 1050px) {
+            display: none;
+        }
+    }
+}
+
+.wrapper_text {
+    display: flex;
+    margin-top: 2.5%;
+    max-width: 850px;
+    align-items: flex-end;
+    flex-direction: column;
+    @media  screen and (max-width: 1050px) {
+        margin-bottom: 16%;
+    }
+}
+
+.sub_wrapper_text {
+    margin-bottom: 74px;
+    @media  screen and (max-width: 1050px) {
+        margin-top: 5%;
+        margin-left: 16.8%;
+        margin-bottom: 60px;
+    }
+    @media  screen and (max-width: 780px) {
+        margin: 122px auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 }
 
 .container_greetings__button {
+    margin-right: 6px;
     animation: 5s invertButtonColor forwards;
+
+    @media  screen and (max-width: 1050px) {
+        margin-right: 10px;
+        margin-bottom: 1%;
+        @include button(28px, 75px, white, black);
+    }
+}
+
+.wrapper_animation {
+    display: flex;
+    align-items: center;
+}
+
+.container_greetings__title {
+    animation: 5s invertColor forwards;
+}
+
+.container_greetings__description {
+    width: 100%;
+    font-weight: 400;
+    text-align: start;
+    line-height: 23px;
+    margin: 12px 0 0 7px;
+    @include text(clamp(14px, 10vw, 20px), 'Helvetica', $yellow, -0.015em);
+
+    animation: 5s invertColor forwards;
+
+    @media  screen and (max-width: 1050px) {
+        font-size: 16px;
+        margin-left: 3px;
+        margin-top: 1%;
+    }
+    @media  screen and (max-width: 780px) {
+        font-size: 14px;
+        text-align: center;
+    }
 }
