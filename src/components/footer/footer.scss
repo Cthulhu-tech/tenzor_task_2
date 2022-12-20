@@ -7,10 +7,20 @@
     background-color: black;
     @include block(100%, 50vh);
     padding: 80px 47px 49px 47px;
+    @media  screen and (max-width: 1050px) {
+        margin-top: 8px;
+    }
 }
 
 .footer_title {
-    @include text(clamp(16px, 9em, 30px), 'Helvetica', white, 0em);
+    @include text(30px, 'Helvetica', white, 0em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 24px;
+        letter-spacing: -0.015em;
+    }
+    @media  screen and (max-width: 780px) {
+        font-size: 20px;
+    }
 }
 
 .info_data {
@@ -19,6 +29,16 @@
     margin-left: 14%;
     flex-direction: column;
     justify-content: space-between;
+    @media  screen and (max-width: 1300px) {
+        margin-left: 8.1%;
+    }
+    @media  screen and (max-width: 1050px) {
+        margin-left: 8.1%;
+    }
+    @media  screen and (max-width: 990px) {
+        align-items: center;
+        margin-left: 0;
+    }
 }
 
 .section_info_phone {
@@ -27,37 +47,85 @@
 
 .section_info_site_address {
     margin-top: -0.2%;
-    margin-left: 8.6%;
+    margin-left: 8.7%;
+    @media  screen and (max-width: 1050px) {
+        margin-left: 16%;
+    }
+    @media  screen and (max-width: 990px) {
+        margin-left: 0;
+    }
 }
 
 .wrapper_section_info_address {
     margin-top: 6.6%;
+    @media  screen and (max-width: 1050px) {
+        margin-top: 5.2%;
+    }
 }
 
 .sub_section_info_link {
     display: flex;
     justify-content: flex-start;
+    @media  screen and (max-width: 1050px) {
+        margin-left: 8.1%;
+        margin-bottom: 1%;
+    }
+    @media  screen and (max-width: 990px) {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+    }
 }
 
 .footer__link {
     text-transform: uppercase;
     @include text(16px, 'Helvetica', $yellow, 0em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 14px;
+    }
+    @media  screen and (max-width: 990px) {
+        margin: 10px 0;
+    }
 }
 
 .link_youtube {
     margin-left: 8.5%;
+    @media  screen and (max-width: 990px) {
+        margin-left: 0;
+    }
 }
 
 .link_vk {
     margin-left: 11.4%;
+    @media  screen and (max-width: 1050px) {
+        margin-left: 10.5%;  
+    }
+    @media  screen and (max-width: 990px) {
+        margin-left: 0;
+    }
 }
 
 .link_instagram {
     margin-left: 11.6%;
+    @media  screen and (max-width: 1050px) {
+        margin-left: 10.9%;  
+    }
+    @media  screen and (max-width: 990px) {
+        margin-left: 0;
+    }
 }
 
 .info_description {
     @include text(16px, 'Helvetica', white, 0em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 14px;
+    }
+    @media  screen and (max-width: 990px) {
+        margin-left: 0;
+    }
+    @media  screen and (max-width: 780px) {
+        font-size: 12px;
+    }
 }
 
 .grid_area {
@@ -65,21 +133,38 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
+.section_info.grid_area{
+    @media  screen and (max-width: 780px) {
+        display: flex;
+        justify-content: center;
+    }
+}
+
 .section_info_link {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media  screen and (max-width: 780px) {
+        display: none;
+    }
 }
 
 .section_info {
     padding-bottom: 1.9%;
     border-bottom: 2px solid $yellow;
+    @media  screen and (max-width: 1050px) {
+        margin-top: 24px;
+        padding-bottom: 25px;
+    }
 }
 
 .wrapper_link {
     display: flex;
     position: relative;
     justify-content: flex-end;
+    @media  screen and (max-width: 1050px) {
+        justify-content: center;
+    }
 }
 
 .sub_section_info__site_info {
@@ -87,12 +172,54 @@
     text-align: center;
     flex-direction: column;
     align-items: flex-start;
+    @media  screen and (max-width: 1300px) {
+        align-items: center;
+    }
+    @media  screen and (max-width: 1050px) {
+        align-items: flex-start;
+    }
 }
+
+.shortcut {
+    display: none;
+}
+
+.sub_section_info__site_info.shortcut{
+    @media  screen and (max-width: 1050px) {
+        width: 100%;
+        display: flex;
+        margin-top: 65px;
+        margin-left: 24.5%;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    @media  screen and (max-width: 990px) {
+        margin: 0 auto;
+    }
+}
+
+.sub_section_info__shortcut {
+    width: 100%;
+    display: flex;
+    margin-top: 2.5%;
+    justify-content: flex-start;
+    @media  screen and (max-width: 990px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 .sub_section_info__site_info.menu {
     margin-right: 7.8%;
+    @media  screen and (max-width: 1050px) {
+        display: none;
+    }
 }
 .sub_section_info__site_info.document {
     margin-right: 1%;
+    @media  screen and (max-width: 1050px) {
+        display: none;
+    }
 }
 
 .sub_section_info {
@@ -103,6 +230,18 @@
     margin-top: 7%;
     margin-bottom: -2.3%;
     text-decoration: none;
+    @media  screen and (max-width: 1050px) {
+        margin-top: 7.5%;
+        margin-right: 11.7%;
+    }
+}
+
+.info_description.link_info_description {
+    @media  screen and (max-width: 1050px) {
+        &:nth-child(3) {
+            margin-right: 1%;
+        }
+    }
 }
 
 .link_document {
@@ -114,12 +253,19 @@
     text-align: end;
     margin: 4.5% 26.1% 5.5% 0;
     @include text(16px, 'Helvetica', $gray, 0em);
-}
-
-.wrapper_footer_logo {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    @media  screen and (max-width: 1300px) {
+        margin-right: 30%;
+    }
+    @media  screen and (max-width: 1050px) {
+        font-size: 14px;
+        margin: 2.8% 21.5% 5.5% 5%;
+    }
+    @media  screen and (max-width: 990px) {
+        margin: 0 auto;
+    }
+    @media  screen and (max-width: 780px) {
+        margin: 20px auto;
+    }
 }
 
 .footer_logo_title {
@@ -127,7 +273,22 @@
     margin-top: 3.4%;
 }
 
+.logo {
+    height: 50px;
+}
+
+.footer_title.link_menu{
+    text-transform: uppercase;
+}
+
 .wrapper_footer_logo {
+    display: flex;
     margin-top: 2%;
     margin-right: 37%;
+    align-items: center;
+    flex-direction: column;
+    @media  screen and (max-width: 1050px) {
+        margin-top: 10%;
+        margin-right: 22%;
+    }
 }
