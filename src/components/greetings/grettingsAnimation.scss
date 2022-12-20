@@ -19,7 +19,7 @@
     }
 }
 
-@keyframes invertBackgroundColor {
+@keyframes invertBackgroundColor1440 {
     0% {
         width: 0;
     }
@@ -31,12 +31,75 @@
     // }
 }
 
-@keyframes invertArrowColor {
+@keyframes invertBackgroundColor1050 {
+    0% {
+        width: 0;
+    }
+    55% {
+        width: 50%;
+    }
+}
+
+@keyframes invertBackgroundColor780 {
+    0% {
+        width: 0;
+    }
+    55% {
+        width: 30%;
+    }
+    // to {
+    //     background-color: black;
+    // }
+}
+
+@keyframes invertBackgroundColor520 {
+    0% {
+        width: 0;
+    }
+    55% {
+        width: 16.6%;
+    }
+    // to {
+    //     background-color: black;
+    // }
+}
+
+@keyframes invertArrowColor1440 {
     55%{
         left: 46.6%;
     }
     to {
         left: 46.6%;
+        // border-left-color: black;
+    }
+}
+
+@keyframes invertArrowColor1050 {
+    55%{
+        left: 50%;
+    }
+    to {
+        left: 50%;
+        // border-left-color: black;
+    }
+}
+
+@keyframes invertArrowColor780 {
+    55%{
+        left: 30%;
+    }
+    to {
+        left: 30%;
+        // border-left-color: black;
+    }
+}
+
+@keyframes invertArrowColor520 {
+    55%{
+        left: 16.6%;
+    }
+    to {
+        left: 16.6%;
         // border-left-color: black;
     }
 }
