@@ -116,7 +116,22 @@ class Form {
             body: JSON.stringify(this.response) // наши отправляемые данные
         })
     }
+    private placehodlerHandler = () => {
+        if(window.innerWidth <= 1050) {
+            this.inputName.placeholder = 'Ваше имя'
+            this.inputPhone.placeholder = '+7 (___) ___-__-__'
+            this.inputEmail.placeholder = 'Ваш E-mail'
+            this.questionInput.placeholder = 'Ваш вопрос'
+        }else {
+            this.inputName.placeholder = ''
+            this.inputPhone.placeholder = ''
+            this.inputEmail.placeholder = ''
+            this.questionInput.placeholder = ''
+        }
+    }
     handlerAllInput = () => {
+        this.placehodlerHandler()
+        window.addEventListener('resize', this.placehodlerHandler)
         this.form.addEventListener('submit', this.formResponse)
         this.inputName.addEventListener('input', this.inputNameHandler)
         this.inputPhone.addEventListener('input', this.inputPhoneHandler)
