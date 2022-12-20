@@ -8,63 +8,50 @@
     justify-content: space-between;
 }
 
-.wrapper_benefits {
+.container_folder {
     gap: 0px 0px;
     display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 
-      "title title title title"
-      "service service service service"
-      "remote remote revenue revenue"
-      "education education support support"; 
-}
-
-.wrapper_form_text {
-    display: flex;
-    margin-top: 7em;
-    grid-area: title;
-    margin-right: 3.3em;
-    align-items: flex-end;
-    flex-direction: column;
-    @media  screen and (max-width: 520px) {
-        margin: 80px auto;
-    }
+      "service service"
+      "remote revenue"
+      "education support"; 
 }
 
 .service_folder {
     z-index: 1;
     grid-area: service;
-    margin-left: 0.6%;
-    margin-top: -6.3%;
+    // margin-left: 0.6%;
+    // margin-top: -6.3%;
 }
 
 .remote_folder {
     z-index: 2;
-    margin-left: 50%;
+    // margin-left: 50%;
     grid-area: remote;
-    margin-top: -16.5%;
+    // margin-top: -16.5%;
 }
 
 .education_folder {
     z-index: 3;
     grid-area: education;
-    margin-left: 8.4%;
-    margin-top: -21.6%;
+    // margin-left: 8.4%;
+    // margin-top: -21.6%;
 }
 
 .revenue_folder {
     z-index: 4;
     grid-area: revenue;
-    margin-top: 31.5%;
-    margin-left: -43.9%;
+    // margin-top: 31.5%;
+    // margin-left: -43.9%;
 }
 
 .support_folder {
     z-index: 3;
     grid-area: support;
-    margin-left: 22%;
-    margin-top: -9.3%;
+    // margin-left: 22%;
+    // margin-top: -9.3%;
 }
 
 .section__form__text {
