@@ -2,8 +2,15 @@
     bottom: -26px;
     margin-left: -2px;
     position: absolute;
+    @media  screen and (max-width: 1050px) {
+        position: relative;
+        margin-bottom: -30px;
+    }
 }
 .article_clients__title {
     margin-left: -1px;
     margin-bottom: 110px;
+    @media  screen and (max-width: 1050px) {
+        margin-bottom: 0px;
+    }
 }
