@@ -10,6 +10,9 @@
     @media  screen and (max-width: 1050px) {
         margin-top: 8px;
     }
+    @media  screen and (max-width: 420px) {
+        padding: 68px 35px 0 38px;
+    }
 }
 
 .footer_title {
@@ -43,6 +46,11 @@
 
 .section_info_phone {
     margin-top: -0.3%;
+    @media  screen and (max-width: 420px) {
+        text-align: start;
+        margin-left: 20px;
+        width: 100%;
+    }
 }
 
 .section_info_site_address {
@@ -54,12 +62,21 @@
     @media  screen and (max-width: 990px) {
         margin-left: 0;
     }
+    @media  screen and (max-width: 420px) {
+        width: 100%;
+        margin-left: 20px;
+        margin-top: 35px;
+    }
 }
 
 .wrapper_section_info_address {
     margin-top: 6.6%;
     @media  screen and (max-width: 1050px) {
         margin-top: 5.2%;
+    }
+    @media  screen and (max-width: 420px) {
+        margin-top: 26px;
+        margin-left: 9px;
     }
 }
 
@@ -74,6 +91,11 @@
         flex-direction: column;
         align-items: center;
         margin-left: 0;
+    }
+    @media  screen and (max-width: 420px) {
+        width: 100%;
+        margin-top: 5px;
+        flex-direction: row;
     }
 }
 
@@ -93,6 +115,9 @@
     @media  screen and (max-width: 990px) {
         margin-left: 0;
     }
+    @media  screen and (max-width: 420px) {
+        margin-left: 9px;
+    }
 }
 
 .link_vk {
@@ -103,6 +128,9 @@
     @media  screen and (max-width: 990px) {
         margin-left: 0;
     }
+    @media  screen and (max-width: 420px) {
+        margin-left: 18px;
+    }
 }
 
 .link_instagram {
@@ -112,6 +140,9 @@
     }
     @media  screen and (max-width: 990px) {
         margin-left: 0;
+    }
+    @media  screen and (max-width: 420px) {
+        margin-left: 20px;
     }
 }
 
@@ -138,6 +169,13 @@
         display: flex;
         justify-content: center;
     }
+    @media  screen and (max-width: 420px) {
+        margin-top: 2px;
+        margin-left: -3px;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .section_info_link {
@@ -146,6 +184,12 @@
     justify-content: space-between;
     @media  screen and (max-width: 780px) {
         display: none;
+    }
+    @media  screen and (max-width: 420px) {
+        display: flex;
+        width: 100%;
+        margin-top: 20px;
+        border-top: 2px solid $yellow;
     }
 }
 
@@ -156,6 +200,9 @@
         margin-top: 24px;
         padding-bottom: 25px;
     }
+    @media  screen and (max-width: 420px) {
+        border-bottom: none;
+    }
 }
 
 .wrapper_link {
@@ -164,6 +211,10 @@
     justify-content: flex-end;
     @media  screen and (max-width: 1050px) {
         justify-content: center;
+    }
+    @media  screen and (max-width: 420px) {
+        margin-left: 46px;
+        margin-top: 2px;
     }
 }
 
@@ -207,6 +258,9 @@
         flex-direction: column;
         align-items: flex-start;
     }
+    @media  screen and (max-width: 420px) {
+        margin-top: 10px;
+    }
 }
 
 .sub_section_info__site_info.menu {
@@ -224,6 +278,9 @@
 
 .sub_section_info {
    margin-top: 9.8%;
+   @media  screen and (max-width: 420px) {
+        margin-top: 80px;
+   }
 }
 
 .link_info_description {
@@ -233,6 +290,9 @@
     @media  screen and (max-width: 1050px) {
         margin-top: 7.5%;
         margin-right: 11.7%;
+    }
+    @media  screen and (max-width: 420px) {
+        margin-bottom: 7px;
     }
 }
 
@@ -266,21 +326,32 @@
     @media  screen and (max-width: 780px) {
         margin: 20px auto;
     }
+    @media  screen and (max-width: 420px) {
+        font-size: 12px;
+        margin: 18px -8px 32px 0;
+    }
 }
 
 .footer_logo_title {
     color: white;
     margin-top: 3.4%;
+    @media  screen and (max-width: 420px) {
+        margin-top: 12px;
+    }
 }
 
 .logo {
-    @media  screen and (max-width: 780px) {
+    @media  screen and (max-width: 1050px) {
         height: 50px;
+    }
+    @media  screen and (max-width: 420px) {
+        height: 43px;
+        margin: -3px 0 2px 4px;
     }
 }
 
 .footer_title.link_menu{
-    @media  screen and (max-width: 780px) {
+    @media  screen and (max-width: 1050px) {
         text-transform: uppercase;
     }
 }
@@ -294,5 +365,8 @@
     @media  screen and (max-width: 1050px) {
         margin-top: 10%;
         margin-right: 22%;
+    }
+    @media  screen and (max-width: 420px) {
+        margin-right: 85px;
     }
 }
