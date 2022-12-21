@@ -1,11 +1,21 @@
+type optionsObserver = {
+    rootMargin: string,
+    threshold: number
+}
+
 class Folder {
+    options: optionsObserver
     allFolder: HTMLDivElement[]
     constructor() {
-        this.allFolder = Array.from(document.querySelectorAll('.wrapper_folder'))
+        this.options = {rootMargin: '50% 0px', threshold: 1}
+        this.allFolder = Array.from(document.querySelectorAll('.animation_observer'))
     }
     private observerFolder = (entry: IntersectionObserverEntry, observer: IntersectionObserver) => {
+        const child = (entry.target.firstElementChild as Element)
         if(entry.isIntersecting) {
-            entry.target.classList.add('animation_dropping')
+            child.classList.add('animation_dropping')
+        }else {
+            child.classList.remove('animation_dropping')
         }
     }
     private folderObserver = () => {
@@ -13,7 +23,8 @@ class Folder {
             entries.forEach((folder) => {
                 this.observerFolder(folder, observer)
             })
-        })
+        },
+        this.options)
         this.allFolder.forEach((folder) => {
             observer.observe(folder)
         })
