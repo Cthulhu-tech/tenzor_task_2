@@ -39,6 +39,9 @@
         height: 43px;
         margin: 2px 0 0 -10px;
     }
+    @media  screen and (max-width: 400px) {
+        margin: 0 auto;
+    }
 }
 
 .header__text {
@@ -73,6 +76,9 @@
     @media  screen and (max-width: 420px) {
         margin: 0 15px;
     }
+    @media  screen and (max-width: 400px) {
+        margin: 0 auto;
+    }
 }
 
 .wrapper_button {
@@ -90,6 +96,9 @@
     @media  screen and (max-width: 420px) {
         margin-right: 18px;
         margin-top: 9px;
+    }
+    @media  screen and (max-width: 400px) {
+        margin: 0 auto;
     }
 }
 

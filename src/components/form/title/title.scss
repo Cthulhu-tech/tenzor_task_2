@@ -117,6 +117,12 @@
         margin-right: 5px;
         @include button(17px, 84px, $yellow, $yellow);
     }
+    @media  screen and (max-width: 400px) {
+        margin: 20px auto;
+        width: 100%;
+        text-align: center;
+        padding: 20px auto;
+    }
 }
 
 .sub_article_form_title {

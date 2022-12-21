@@ -97,6 +97,10 @@
         margin-right: 1px;
         @include button(19px, 99px, white, black);
     }
+    @media  screen and (max-width: 400px) {
+        width: 100%;
+        padding: auto;
+    }
 }
 
 .wrapper_animation {
@@ -110,6 +114,11 @@
 
 .container_greetings__title {
     animation: 5s invertColor forwards;
+    @media  screen and (max-width: 400px) {
+        text-align: center;
+        margin: 0 auto;
+        font-size: clamp(20px, 10vw, 45px);
+    }
 }
 
 .container_greetings__description {
@@ -136,5 +145,10 @@
         margin: 25px 0 -2px 0px;
         line-height: 16px;
         width: 90%;
+    }
+    @media  screen and (max-width: 400px) {
+        text-align: center;
+        margin: 0 auto;
+        font-size: clamp(8px, 8vw, 14px);
     }
 }
