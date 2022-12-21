@@ -99,9 +99,9 @@ class HorizontalScrolling {
         if (this.scrollY >= this.maxScrollPosition) {
             // устанавливаем позицию обсолютную для
             this.scrollWrapper.style.position = "absolute"
-            this.scrollWrapper.style.left = this.rightPosition + 'px'
+            this.scrollWrapper.style.left = this.rightPosition - 35 + 'px'
             // скрывает элемент с экрана пользователя
-            this.scrollWrapper.style.top = (this.maxScrollPosition - (window.innerHeight + this.header.offsetHeight)) + 'px'
+            this.scrollWrapper.style.top = (this.maxScrollPosition - (window.innerHeight + this.header.offsetHeight) + 35) + 'px'
         }
     }
     private updateLastPosition = (element: HTMLElement) => {
