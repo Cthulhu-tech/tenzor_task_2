@@ -24,7 +24,7 @@
         width: 100%;
     }
     @media screen and (max-width: 480px){
-        margin: 138px 0 72px 0;
+        margin: 138px 0 0;
     }
 }
 
@@ -52,6 +52,17 @@
             animation: none;
         }
     }
+    @media  screen and (max-width: 720px) {
+        margin-bottom: 1.5%;
+        &:before {
+            width: 82%;
+            animation: none;
+        }
+        &:after {
+            left: 82%;
+            animation: none;
+        }
+    }
 }
 
 .form_title {
@@ -61,10 +72,12 @@
     margin-left: 4.5%;
     @media  screen and (max-width: 1050px) {
         margin-top: 4%;
+        margin-left: 10%;
         margin-bottom: 0;
     }
     @media  screen and (max-width: 780px) {
         margin: 138px 0 0;
+        font-size: 45px;
     }
 }
 
@@ -77,8 +90,10 @@
 .form_title_mobile {
     display: none;
     @media  screen and (max-width: 480px) {
-        display: block;
+        display: flex;
         margin: 0;
+        margin-left: 2px;
+        white-space: nowrap;
     }
 }
 
@@ -92,13 +107,15 @@
     @include text(clamp(14px, 8vw, 20px), 'Helvetica', white, -0.015em);
     @media  screen and (max-width: 1050px) {
         font-size: 16px;
-        margin-right: 8.1%;
+        margin-right: 7.8%;
         margin-top: 23px;
         @include button(26px, 105px, $yellow, $yellow);
     }
     @media  screen and (max-width: 780px) {
         margin: 72px auto;
-        @include button(19px, 84px, $yellow, $yellow);
+        font-size: 14px;
+        margin-right: 5px;
+        @include button(17px, 84px, $yellow, $yellow);
     }
 }
 
