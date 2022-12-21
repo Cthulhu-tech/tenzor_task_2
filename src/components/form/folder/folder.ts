@@ -7,7 +7,7 @@ class Folder {
     options: optionsObserver
     allFolder: HTMLDivElement[]
     constructor() {
-        this.options = {rootMargin: '50% 0px', threshold: 1}
+        this.options = {rootMargin: '25% 0px', threshold: 1}
         this.allFolder = Array.from(document.querySelectorAll('.animation_observer'))
     }
     private observerFolder = (entry: IntersectionObserverEntry, observer: IntersectionObserver) => {
