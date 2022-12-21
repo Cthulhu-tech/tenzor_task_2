@@ -2,7 +2,7 @@
 
  📂assets - папка с файлами
  
- ┃ ┣ 📂backgroundParalax - хранит файлы связанные с бэком
+ ┃ ┣ 📂backgroundParalax - хранит файлы связанные с задним фоном
  
  ┃ ┃ ┗ 📜background.png 
  
