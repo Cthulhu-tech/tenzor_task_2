@@ -1,57 +1,90 @@
 @import '../../../style/mixin.scss';
 @import '../../../style/color.scss';
 
+.animation_observer {
+    display: flex;
+    min-height: 274px;
+    align-items: center;
+    justify-content: center;
+}
+
 .wrapper_folder {
     display: flex;
+    bottom: -200vh;
     @include folder;
+    transition: .0s;
+    z-index: -100000;
+    position: absolute;
+    visibility: hidden;
     flex-direction: column;
     justify-content: space-between;
 }
 
+.animation_dropping {
+    bottom: 0;
+    transition: .8s;
+    visibility: visible;
+}
+
 .container_folder {
-    gap: 0px 0px;
     display: grid;
+    position: relative;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 
-      "service service"
-      "remote revenue"
-      "education support"; 
+      "service remote"
+      "education ."
+      "revenue support";
 }
 
 .service_folder {
     z-index: 1;
     grid-area: service;
-    // margin-left: 0.6%;
-    // margin-top: -6.3%;
+}
+
+.wrapper_folder.service_folder {
+    margin-right: 28.3%;
+    margin-bottom: 1.5%;
 }
 
 .remote_folder {
     z-index: 2;
-    // margin-left: 50%;
     grid-area: remote;
-    // margin-top: -16.5%;
+}
+
+.wrapper_folder.remote_folder {
+    margin-right: 130.5%;
+    margin-bottom: -35.3%;
 }
 
 .education_folder {
     z-index: 3;
     grid-area: education;
-    // margin-left: 8.4%;
-    // margin-top: -21.6%;
+}
+
+.wrapper_folder.education_folder {
+    margin-right: 14%;
+    margin-bottom: -30%;
 }
 
 .revenue_folder {
     z-index: 4;
     grid-area: revenue;
-    // margin-top: 31.5%;
-    // margin-left: -43.9%;
+}
+
+.wrapper_folder.revenue_folder {
+    margin-right: -82%;
+    margin-bottom: -2%;
 }
 
 .support_folder {
     z-index: 3;
     grid-area: support;
-    // margin-left: 22%;
-    // margin-top: -9.3%;
+}
+
+.wrapper_folder.support_folder {
+    margin-bottom: -2%;
+    margin-left: 13.5%;
 }
 
 .section__form__text {
@@ -84,15 +117,6 @@
 .folder_support_title {
     margin-top: 16px !important;
     margin-left: -28px !important;
-}
-
-.folder_box {
-    z-index: 1;
-    display: flex;
-    min-height: 100%;
-    position: relative;
-    flex-direction: column;
-    justify-content: flex-end;
 }
 
 .select_text {
@@ -149,17 +173,25 @@
         margin-bottom: -4px;
     }
     & > .select_text {
-        margin-left: -5px;
-        margin-bottom: 10px;
+        margin-left: -6px !important;
     }
+    margin-bottom: 20px;
 }
 
 .revenue_folder_text{
     margin-bottom: 1px;
+    &:nth-child(1){
+        margin-left: -2px;
+        margin-bottom: -1px;
+    }
+    &:nth-child(2){
+        margin-left: -2px;
+        margin-bottom: -3px;
+    }
     &:nth-child(3){
         width: 80%;
-        margin-left: -1px;
-        margin-bottom: 10px;
+        margin-left: -3px;
+        margin-bottom: 13px;
     }
     & > .select_text {
         margin-left: -4px;
