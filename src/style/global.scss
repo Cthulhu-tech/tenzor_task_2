@@ -25,6 +25,10 @@ body {
     overflow-y: hidden;
 }
 
+.parallax {
+    position: relative;
+}
+
 .paralax_layer {
     z-index: -1;
     width: 160vw;
