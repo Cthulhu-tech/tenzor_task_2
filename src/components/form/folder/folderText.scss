@@ -1,0 +1,185 @@
+@import '../../../style/mixin.scss';
+@import '../../../style/color.scss';
+
+.section__form__text {
+    margin-top: 32px;
+    margin-right: -4px;
+    @include text(clamp(18px, 10em, 30px), 'Helvetica', black, -0.01em);
+    @media  screen and (max-width: 1050px) {
+        font-size: 16px;
+        margin-top: 22px;
+    }
+    @media  screen and (max-width: 420px) {
+        font-size: 14px;
+        margin-top: 11px;
+        margin-right: 0;
+    }
+}
+
+.folder_remote_title {
+    margin-left: -9px !important;
+    @media  screen and (max-width: 1300px) {
+        margin-left: -0px!important;
+    }
+}
+
+.folder_education_title {
+    margin-top: 23px !important;
+    margin-left: -60px !important;
+    @media  screen and (max-width: 1300px) {
+        margin-top: 20px !important;
+        margin-left: -30px !important;
+    }
+}
+
+.folder_revenue_title {
+    margin-top: 16px !important;
+    margin-left: -76px !important;
+    @media  screen and (max-width: 1300px) {
+        margin-top: 20px !important;
+        margin-left: -56px !important;
+    }
+}
+
+.folder_support_title {
+    margin-top: 16px !important;
+    margin-left: -28px !important;
+    @media  screen and (max-width: 1300px) {
+        margin-top: 20px !important;
+        margin-left: -15px !important;
+    }
+}
+
+.folder_service_title {
+    @media  screen and (max-width: 1300px) {
+        margin-left: 7px !important;
+    }  
+}
+
+.select_text {
+    padding: 0 5px;
+    color: $yellow;
+    margin-right: 2px;
+}
+
+.wrapper_description {
+    left: 29px;
+    margin-left: 10px;
+    position: relative;
+}
+
+.wrapper_description_service {
+    bottom: 106px;
+    max-width: 60%;
+    @media  screen and (max-width: 1300px) {
+        margin-bottom: -14px;
+        margin-left: 6px;
+    }
+    @media  screen and (max-width: 720px) {
+        margin-left: -6px;
+        margin-bottom: -22px;
+    }
+}
+
+.wrapper_description_remote {
+    bottom: 137px;
+    display: flex;
+    @media  screen and (max-width: 720px) {
+        margin-left: -10px;
+        bottom: 100px;
+    }
+}
+
+.wrapper_description_education {
+    left: 25px;
+    bottom: 108px;
+    max-width: 70%;
+    @media  screen and (max-width: 720px) {
+        bottom: 80px;
+    }
+}
+
+.wrapper_description_support {
+    @media  screen and (max-width: 1300px) {
+        margin-bottom: -17px;
+        margin-left: 6px;
+    }
+}
+
+.education_folder_text {
+    margin-right: -1px;
+}
+
+.education_folder_text {
+    margin-left: 3px;
+    &:nth-child(1){
+        margin-left: -1px;
+    }
+    & > .select_text {
+        margin-right: 1px;
+    }
+}
+
+.wrapper_description_revenue {
+    &:nth-child(1){
+        left: 42px;
+        bottom: 72px;
+    }
+    &:nth-child(2){
+        left: 43px;
+        width: 100%;
+        bottom: 60px;
+        margin-bottom: -4px;
+    }
+    & > .select_text {
+        margin-left: -6px !important;
+    }
+    margin-bottom: 20px;
+    @media  screen and (max-width: 1300px) {
+        margin-bottom: 9px;
+        margin-left: 3px;
+        &:nth-child(2){
+            bottom: 57px;
+        }
+    }
+    @media  screen and (max-width: 720px) {
+        margin-left: -21px;
+        margin-bottom: -8px;
+        &:nth-child(2){
+            bottom: 44px;
+        }
+    }
+}
+
+.revenue_folder_text{
+    margin-bottom: 1px;
+    &:nth-child(1){
+        margin-left: -2px;
+        margin-bottom: -1px;
+    }
+    &:nth-child(2){
+        margin-left: -2px;
+        margin-bottom: -3px;
+    }
+    &:nth-child(3){
+        width: 80%;
+        margin-left: -3px;
+        margin-bottom: 13px;
+    }
+    & > .select_text {
+        margin-left: -4px;
+        margin-right: 1px;
+    }
+}
+
+.wrapper_description_support {
+    bottom: 108px;
+    & > .select_text {
+        margin-top: -1px;
+        margin-left: -5px;
+    }
+    @media  screen and (max-width: 720px) {
+        margin-left: -6px;
+        margin-bottom: -25px;
+    }
+}

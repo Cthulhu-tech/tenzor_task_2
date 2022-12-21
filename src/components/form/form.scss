@@ -8,8 +8,15 @@
     flex-direction: column;
     @media  screen and (max-width: 1050px) {
         padding-left: 24px;
-        padding-right: 19px;
+        padding-right: 10px;
     }
+    @media  screen and (max-width: 400px) {
+        padding: 0 auto;
+    }
+}
+
+.sub_section_form{
+    margin-bottom: 30px;
 }
 
 .wrapper_form_text {
@@ -19,7 +26,14 @@
     align-items: flex-end;
     flex-direction: column;
     @media  screen and (max-width: 520px) {
-        margin: 80px auto;
+        margin-top: 40px;
+        margin-right: 6px;
+    }
+    @media  screen and (max-width: 420px) {
+        margin-right: 0px;
+    }
+    @media  screen and (max-width: 400px) {
+        margin: 20px auto;
     }
 }
 
@@ -44,7 +58,11 @@
     justify-content: flex-start;
     padding: 56px 106px 72px 108px;
     @media  screen and (max-width: 1050px) {
+        padding: 0 52px 0 35px;
+    }
+    @media  screen and (max-width: 720px) {
         padding: 0 14px;
+        margin-right: 5px;
     }
 }
 
@@ -62,7 +80,10 @@
         min-height: 446px;
     }
     @media  screen and (max-width: 780px) {
-        padding: 66px 33px 0 33px;
+        margin-left: -7px;
+        min-height: 587px;
+        border-radius: 38px;
+        padding: 56px 10px 0 10px;
     }
 }
 
@@ -85,6 +106,11 @@
         margin-top: 6px;
         margin-left: 9px;
     }
+    @media  screen and (max-width: 780px) {
+        font-size: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }
 }
 
 .sub_section_form_regulations {
@@ -101,6 +127,9 @@
     margin-top: 0.7%;
     flex-direction: column;
     align-items: flex-start;
+    @media  screen and (max-width: 1050px) {
+        margin-top: 12px;
+    }
 }
 
 .form_description {
@@ -114,6 +143,9 @@
     }
     @media  screen and (max-width: 780px) {
         font-size: 14px;
+        margin-top: 3px;
+        max-width: 85%;
+        margin-left: 22px;
     }
 }
 
@@ -151,6 +183,10 @@
         &::before {
             display: none;
         }
+    }
+    @media  screen and (max-width: 780px) {
+        margin-left: 0;
+        margin-bottom: 15px;
     }
 }
 
@@ -219,6 +255,7 @@
     }
     @media  screen and (max-width: 780px) {
         font-size: 14px;
+        margin: 45px 0 13.5px 0;
         @include button(19px, 107px, black, white);
     }
     @media  screen and (max-width: 520px) {

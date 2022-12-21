@@ -55,10 +55,11 @@
         font-size: 64px;
     }
     @media  screen and (max-width: 990px) {
-        font-size: 48px;
-    }
-    @media  screen and (max-width: 420px) {
         font-size: 45px;
+        padding: 0;
+    }
+    @media  screen and (max-width: 400px) {
+        font-size: clamp(20px, 10vw, 45px);
     }
 }
 

@@ -1,4 +1,76 @@
+@import '../../style/mixin.scss';
 @import '../../style/color.scss';
+
+@include animation_mixin_arrow_line(arrowLine1440, 46.6%);
+@include animation_mixin_arrow_line(arrowLine1050, 50%);
+@include animation_mixin_arrow_line(arrowLine780, 30%);
+@include animation_mixin_arrow_line(arrowLine520, 16.6%);
+
+@include animation_mixin_arrow_delta(arrowDelta1440, 46.6%);
+@include animation_mixin_arrow_delta(arrowDelta1050, 50%);
+@include animation_mixin_arrow_delta(arrowDelta780, 30%);
+@include animation_mixin_arrow_delta(arrowDelta520, 16.6%);
+
+.animation_line {
+    left: 0;
+    width: 100%;
+    margin-bottom: 0.5%;
+    position: absolute;
+
+    @media  screen and (max-width: 520px) {
+        width: 40%;
+    }
+
+    &::before, &::after {
+        left: 0;
+        content: '';
+        position: absolute;
+    }
+
+    @media  screen and (max-width: 400px) {
+        display: none;
+    }
+
+    &::before {
+        height: 2px;
+        background-color: $yellow;
+        @media  screen and (min-width: 1050px) {
+            width: 46.6%;
+            animation: 5s arrowLine1440 forwards;
+        }
+        @media  screen and (max-width: 1050px) {
+            width: 50%;
+            animation: 5s arrowLine1050 forwards;
+        }
+        @media  screen and (max-width: 780px) {
+            width: 30%;
+            animation: 5s arrowLine780 forwards;
+        }
+        @media  screen and (max-width: 520px) {
+            width: 16.6%;
+            animation: 5s arrowLine520 forwards;
+        }
+    }
+    &::after{
+        bottom: -5px;
+        border-left: 4px solid $yellow;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+
+        @media  screen and (min-width: 1050px) {
+            animation: 5s arrowDelta1440 forwards;
+        }
+        @media  screen and (max-width: 1050px) {
+            animation: 5s arrowDelta1050 forwards;
+        }
+        @media  screen and (max-width: 780px) {
+            animation: 5s arrowDelta780 forwards;
+        }
+        @media  screen and (max-width: 520px) {
+            animation: 5s arrowDelta520 forwards;
+        }
+    }
+}
 
 @keyframes upAnimation {
     0% {
@@ -16,97 +88,6 @@
 @keyframes invertColor {
     to {
         color: black;
-    }
-}
-
-@keyframes invertBackgroundColor1440 {
-    0% {
-        width: 0;
-    }
-    55% {
-        width: 46.6%;
-    }
-    // to {
-    //     background-color: black;
-    // }
-}
-
-@keyframes invertBackgroundColor1050 {
-    0% {
-        width: 0;
-    }
-    55% {
-        width: 50%;
-    }
-}
-
-@keyframes invertBackgroundColor780 {
-    0% {
-        width: 0;
-    }
-    55% {
-        width: 30%;
-    }
-    // to {
-    //     background-color: black;
-    // }
-}
-
-@keyframes invertBackgroundColor520 {
-    0% {
-        width: 0;
-    }
-    55% {
-        width: 16.6%;
-    }
-    // to {
-    //     background-color: black;
-    // }
-}
-
-@keyframes invertArrowColor1440 {
-    55%{
-        left: 46.6%;
-    }
-    to {
-        left: 46.6%;
-        // border-left-color: black;
-    }
-}
-
-@keyframes invertArrowColor1050 {
-    55%{
-        left: 50%;
-    }
-    to {
-        left: 50%;
-        // border-left-color: black;
-    }
-}
-
-@keyframes invertArrowColor780 {
-    55%{
-        left: 30%;
-    }
-    to {
-        left: 30%;
-        // border-left-color: black;
-    }
-}
-
-@keyframes invertArrowColor520 {
-    55%{
-        left: 16.6%;
-    }
-    to {
-        left: 16.6%;
-        // border-left-color: black;
-    }
-}
-
-@keyframes invertElipseColor {
-    to {
-        border-color: black;
     }
 }
 
