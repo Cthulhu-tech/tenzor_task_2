@@ -125,13 +125,13 @@
         content: '';
         left: 33%;
         width: 33%;
-        height: 2px;
+        height: 3px;
         position: absolute;
         background-color: black;
         transition: all .45s ease-in-out;
     }
     &::before {
-        top: 16px;
+        top: 15px;
         transform: rotate(0);
         @media  screen and (max-width: 1050px) {
             top: 23px;
