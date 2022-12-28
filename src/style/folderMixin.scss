@@ -22,9 +22,11 @@
         width: calc(50% + 20px);
         background-color: white;
         background-repeat: no-repeat;
-        border-bottom: 25px solid white;
         filter: drop-shadow(0px -1px 0px $whiteBorder);
         background: radial-gradient(circle 23px at top right,#0000 100%,white ) top right;
+        @media  screen and (max-width: 420px) {
+            height: 23px;
+        }
     }
     transition: .5s;
     position: relative;
@@ -59,11 +61,14 @@
     flex-direction: column;
     justify-content: center;
     background-color: white;
+    box-shadow: 0 20px 0 0 white;
+    border-bottom: 3px solid white;
     border-top: 1px solid $whiteBorder;
     @include text(18px, 'Helvetica', black, -0.015em);
     & > p{
         margin-top: 21px;
         margin-left: -19px;
+        position: relative;
     }
     @media  screen and (max-width: 1300px) {
         font-size: 16px;
