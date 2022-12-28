@@ -74,10 +74,14 @@
 .cursor {
     width: 100px;
     height: 111px;
-    display: none;
     z-index: 10000;
     position: fixed;
     background-image: url('../assets/svg/cursor.svg');
+    @media  screen and (max-width: 1050px) {
+        position: absolute;
+        top: -150px;
+        left: 80px;
+    }
 }
 
 .wrapper {

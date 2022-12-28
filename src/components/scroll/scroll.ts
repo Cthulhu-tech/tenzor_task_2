@@ -69,7 +69,7 @@ class HorizontalScrolling {
             this.cursor.style.position = 'fixed'
             this.cursor.style.top = event.clientY + 'px'
             this.cursor.style.left = event.clientX + 'px'
-        } else if (window.innerWidth < 1050) {
+        } else if (window.innerWidth <= 1050) {
             this.cursor.style.position = 'absolute'
             this.cursor.style.display = "block"
             this.cursor.style.top = -150 + 'px'
