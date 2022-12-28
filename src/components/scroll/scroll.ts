@@ -15,6 +15,7 @@ class HorizontalScrolling {
     private scroll: HTMLDivElement
     private footer: HTMLElement
     private lastPosition: LastPositionType
+    private allScrollButtonContainer: HTMLDivElement[]
     constructor() {
         this.lastPosition = {x: 0, y: 0, z: 0}
         this.scrollY = 0
@@ -23,6 +24,7 @@ class HorizontalScrolling {
         this.initialPosition = 0
         this.maxScrollPosition = 0
         this.windthScrollWrapper = 0
+        this.allScrollButtonContainer = Array.from(document.querySelectorAll('.scroll_button_container')) as HTMLDivElement[]
         this.scrollWrapper = document.querySelector('.scroll_wrapper') as HTMLDivElement
         this.scroll = document.querySelector('.scroll') as HTMLDivElement
         this.paralaxImg = document.querySelector(".paralax_layer") as HTMLImageElement
