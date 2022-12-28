@@ -24,6 +24,7 @@
     margin: 0 16px;
     padding-top: 15px;
     min-height: 100vh;
+    position: relative;
     align-items: normal;
     flex-direction: column;
     justify-content: center;
@@ -45,8 +46,9 @@
 .scroll_button_container {
     width: 140px;
     height: 80px;
+    bottom: 33px;
     display: flex;
-    bottom: -170px;
+    transition: 0.5s;
     margin-left: 205px;
     position: absolute;
     align-items: center;
@@ -54,6 +56,11 @@
     @media  screen and (min-width: 421px) {
         display: none;
     }
+}
+
+.animation_scroll_hidden {
+    opacity: 0;
+    z-index: -10;
 }
 
 .scroll_button {

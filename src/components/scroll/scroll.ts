@@ -52,6 +52,58 @@ class HorizontalScrolling {
             this.allHeightBody += (node as HTMLElement).offsetHeight
         })
     }
+    private observeScrollContainer = (entry: IntersectionObserverEntry, observer: IntersectionObserver) => {
+        const entryELement = entry.target as HTMLElement
+        if(((window.innerWidth * .5)) < entryELement.getBoundingClientRect().left) {
+            entryELement.classList.remove('animation_scroll_hidden')
+        }else{
+           entryELement.classList.add('animation_scroll_hidden')
+        }
+    }
+    private intersectionObserveScroll = () => {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((buttonContainer) => {
+                this.observeScrollContainer(buttonContainer, observer)
+            })
+        },{
+            threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+        })
+        this.allScrollButtonContainer.forEach((folder) => {
+            observer.observe(folder)
+        })
+    }
+    private scrollMobileVersion = () => {
+        this.allScrollButtonContainer.forEach((buttonContainer) => {
+            if(buttonContainer.firstElementChild){
+                buttonContainer.firstElementChild.removeEventListener('click', this.scrollToElement)
+                buttonContainer.firstElementChild.addEventListener('click', this.scrollToElement)
+            }
+            if(buttonContainer.lastElementChild){
+                buttonContainer.lastElementChild.removeEventListener('click', this.scrollToElement)
+                buttonContainer.lastElementChild.addEventListener('click', this.scrollToElement)
+            }
+        })
+    }
+    private scrollToElement = (event: Event) => {
+        const target = event.currentTarget as HTMLDivElement
+        const targetParent = target.parentElement as HTMLDivElement
+        const parentFirst = targetParent.parentElement as HTMLDivElement
+        let parentSecond: HTMLDivElement
+            if(target.classList.contains('scroll_left'))
+                parentSecond = parentFirst.previousElementSibling as HTMLDivElement
+            else
+                parentSecond = parentFirst.nextElementSibling as HTMLDivElement
+        const leftFirst = parentFirst.offsetLeft
+        if(parentSecond){
+            console.log((parentSecond.lastChild as HTMLDivElement).getBoundingClientRect().right)
+            const leftSecond = parentSecond.offsetLeft
+            const distance = ((leftFirst - leftSecond))
+            window.scrollTo(0, (window.scrollY - distance) + parentFirst.getBoundingClientRect().left - (target.offsetWidth / 2))  
+        }else{
+            window.scrollTo(0, (window.scrollY + parentFirst.offsetHeight))
+        }
+
+    }
     private resizeHandler = () => {
         // обнуляем длину скролла и вычитаем
         this.updateScrollWrapperWidth()
@@ -63,6 +115,8 @@ class HorizontalScrolling {
         // устанавливаем следующему элементу за main контейнером margin-top = длине скролла с вычетом ширины скрола
         const mains = (this.main.lastElementChild as HTMLElement)
         mains.style.marginTop = (this.windthScrollWrapper) + 'px'
+        if(window.innerWidth <= 420)
+            this.scrollMobileVersion()
     }
     private positionCursorHandler = (event: MouseEvent) => {
         // ограничиваем кастомный курсор в областе видимости горизонтального скролла
@@ -113,26 +167,21 @@ class HorizontalScrolling {
         }
     }
     private updateLastPosition = (element: HTMLElement) => {
-
         if(element.style.transform === '') {
-
             this.lastPosition = {
                 x: 0,
                 y: 0,
                 z: 0
-            };
-
+            }
             return false
         }
-
         const values = element.style.transform.split(/\w+\(|\);?/)
         const transform = values[1].split(/,\s?/g).map(numStr => parseInt(numStr))
-
         this.lastPosition = {
             x: transform[0],
             y: transform[1],
             z: transform[2]
-        };
+        }
     }
     private setTranslate = (x, y, element) => {
         element.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
@@ -146,6 +195,7 @@ class HorizontalScrolling {
     }
     eventListenerHandler = () => {
         this.resizeHandler()
+        this.intersectionObserveScroll()
         this.horizontalScrollingHandler()
         window.addEventListener("DOMContentLoaded", this.scrollLoop)
         window.addEventListener("scroll", this.scrollLoop);
