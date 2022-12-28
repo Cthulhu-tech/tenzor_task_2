@@ -42,6 +42,79 @@
     justify-content: center;
 }
 
+.scroll_button_container {
+    width: 140px;
+    height: 80px;
+    display: flex;
+    bottom: -170px;
+    margin-left: 205px;
+    position: absolute;
+    align-items: center;
+    justify-content: space-around;
+    @media  screen and (min-width: 421px) {
+        display: none;
+    }
+}
+
+.scroll_button {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    margin-top: 6px;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 100%;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid $yellow;
+}
+
+.scroll_left {
+    margin-left: 3px;
+}
+
+.scroll_right {
+    margin-right: 1px;
+}
+
+.scroll_button_position {
+    position: relative;
+    &:before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        display: block;
+        border-left: 2px solid $yellow;
+        border-bottom: 2px solid $yellow;
+    }
+    &:after {
+        top: 10px;
+        content: "";
+        width: 26px;
+        height: 2px;
+        position: absolute;
+        background-color: $yellow;
+    }
+}
+
+.scroll_button_left {
+    &:before {
+        transform: rotate(45deg);
+    }
+    &::after {
+        left: -2px;
+    }
+}
+
+.scroll_button_right {
+    &:before {
+        transform: rotate(225deg);
+    }
+    &::after {
+        right: -1px;
+    }
+}
+
 .sub_sub_scroll_wrapper {
     position: relative;
     margin: 145px 118px 0 -5px;
