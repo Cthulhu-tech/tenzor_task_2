@@ -6,6 +6,9 @@
     cursor: none;
     position: relative;
     @include block(clamp(280px, 100%, 1440px), 100vh);
+    @media  screen and (max-width: 1050px) {
+        cursor: auto;
+    }
 }
 
 .scroll_wrapper {
@@ -36,6 +39,7 @@
 }
 
 .sub_sub_scroll_wrapper {
+    position: relative;
     margin: 145px 118px 0 -5px;
 }
 

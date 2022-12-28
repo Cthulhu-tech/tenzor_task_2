@@ -64,10 +64,16 @@ class HorizontalScrolling {
     }
     private positionCursorHandler = (event: MouseEvent) => {
         // ограничиваем кастомный курсор в областе видимости горизонтального скролла
-        if (event.pageY > this.initialPosition && event.pageY < this.maxScrollPosition + this.scrollWrapper.offsetHeight) {
+        if (event.pageY > this.initialPosition && event.pageY < this.maxScrollPosition + this.scrollWrapper.offsetHeight && window.innerWidth > 1050) {
             this.cursor.style.display = "block"
+            this.cursor.style.position = 'fixed'
             this.cursor.style.top = event.clientY + 'px'
             this.cursor.style.left = event.clientX + 'px'
+        } else if (window.innerWidth < 1050) {
+            this.cursor.style.position = 'absolute'
+            this.cursor.style.display = "block"
+            this.cursor.style.top = -150 + 'px'
+            this.cursor.style.left = 80 + 'px'
         } else {
             this.cursor.style.display = "none"
         }
