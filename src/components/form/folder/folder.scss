@@ -116,6 +116,9 @@
         "service revenue";
         grid-template-rows: 202px 415px 12px;
     }
+    @media  screen and (max-width: 900px) {
+        margin-bottom: 100px;
+    }
     @media  screen and (max-width: 720px) {
         grid-template-areas: 
         "support"

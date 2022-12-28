@@ -1,8 +1,6 @@
 class GreetingAnimationUp {
-    private containerGreetingTitle: HTMLParagraphElement
     private subContainerGretings: HTMLDivElement
     constructor() {
-        this.containerGreetingTitle = document.querySelector('.container_greetings__title') as HTMLParagraphElement    
         this.subContainerGretings = document.querySelector('.sub_container_greetings') as HTMLDivElement    
     }
     private observerGreetingsContainer = (entry: IntersectionObserverEntry, observer: IntersectionObserver) => {
