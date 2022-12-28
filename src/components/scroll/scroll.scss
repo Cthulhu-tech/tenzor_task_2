@@ -28,6 +28,10 @@
     flex-direction: column;
     justify-content: center;
     min-width: clamp(588px, 80%, 954px);
+    @media  screen and (max-width: 420px) {
+        padding-top: 57px;
+        justify-content: start;
+    }
 }
 
 .sub_scroll_wrapper {
@@ -90,6 +94,18 @@
     @media  screen and (max-width: 780px) {
         width: 588px;
     }
+    @media  screen and (max-width: 420px) {
+        height: 90.7%;
+        padding: 74px 32px 32px;
+    }
+}
+
+.wrapper_scroll_button {
+    display: none;
+    @media  screen and (max-width: 420px) {
+
+        position: absolute;
+    }
 }
 
 .wrapper_grid {
@@ -98,6 +114,10 @@
     justify-items: end;
     display: inline-grid;
     grid-template-columns: 1fr 1fr minmax(280px, 956px);
+    @media  screen and (max-width: 420px) {
+        margin-top: 28px;
+        margin-left: -1px;
+    }
 }
 
 .sub_wrapper_description {
@@ -108,6 +128,10 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    @media  screen and (max-width: 420px) {
+        margin-bottom: 100px;
+        margin-left: 1px;
+    }
 }
 
 .sub_sub_wrapper_text {
@@ -123,7 +147,9 @@
         font-size: 16px;
     }
     @media  screen and (max-width: 420px) {
+        margin-left: -2px;
         font-size: 14px;
+        line-height: 16px;
     }
 }
 
