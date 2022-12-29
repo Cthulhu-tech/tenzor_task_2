@@ -16,6 +16,7 @@ class HorizontalScrolling {
     private footer: HTMLElement
     private lastPosition: LastPositionType
     private allScrollButtonContainer: HTMLDivElement[]
+    private sectionForm: HTMLElement
     constructor() {
         this.lastPosition = {x: 0, y: 0, z: 0}
         this.scrollY = 0
@@ -33,6 +34,7 @@ class HorizontalScrolling {
         this.header = document.querySelector('.header') as HTMLElement
         this.main = document.querySelector('.main') as HTMLElement
         this.footer = document.querySelector('.footer') as HTMLElement
+        this.sectionForm = document.querySelector('.section_form') as HTMLInputElement
     }
     private updateScrollWrapperWidth = () => {
         this.windthScrollWrapper = 0 - this.scrollWrapper.offsetWidth
@@ -54,10 +56,11 @@ class HorizontalScrolling {
     }
     private observeScrollContainer = (entry: IntersectionObserverEntry, observer: IntersectionObserver) => {
         const entryELement = entry.target as HTMLElement
-        if(((window.innerWidth * .5)) < entryELement.getBoundingClientRect().left) {
-            entryELement.classList.remove('animation_scroll_hidden')
+        const childElement = entryELement.lastElementChild  as HTMLElement
+        if(entry.intersectionRatio >= .5 && entry.intersectionRatio <= .7 && this.scrollWrapper.style.position === 'fixed') {
+            childElement.classList.remove('animation_scroll_hidden')
         }else{
-           entryELement.classList.add('animation_scroll_hidden')
+            childElement.classList.add('animation_scroll_hidden')
         }
     }
     private intersectionObserveScroll = () => {
@@ -66,10 +69,12 @@ class HorizontalScrolling {
                 this.observeScrollContainer(buttonContainer, observer)
             })
         },{
+            rootMargin: '100% 0px',
             threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
         })
         this.allScrollButtonContainer.forEach((folder) => {
-            observer.observe(folder)
+            console.log(folder.parentElement)
+            observer.observe(folder.parentElement as HTMLElement)
         })
     }
     private scrollMobileVersion = () => {
@@ -95,14 +100,13 @@ class HorizontalScrolling {
                 parentSecond = parentFirst.nextElementSibling as HTMLDivElement
         const leftFirst = parentFirst.offsetLeft
         if(parentSecond){
-            console.log((parentSecond.lastChild as HTMLDivElement).getBoundingClientRect().right)
             const leftSecond = parentSecond.offsetLeft
             const distance = ((leftFirst - leftSecond))
             window.scrollTo(0, (window.scrollY - distance) + parentFirst.getBoundingClientRect().left - (target.offsetWidth / 2))  
         }else{
-            window.scrollTo(0, (window.scrollY + parentFirst.offsetHeight))
-        }
-
+            this.sectionForm.scrollIntoView()
+            targetParent.classList.add('.animation_scroll_hidden')
+        } 
     }
     private resizeHandler = () => {
         // обнуляем длину скролла и вычитаем
