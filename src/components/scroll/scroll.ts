@@ -73,8 +73,8 @@ class HorizontalScrolling {
             threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
         })
         this.allScrollButtonContainer.forEach((folder) => {
-            console.log(folder.parentElement)
-            observer.observe(folder.parentElement as HTMLElement)
+            const parentElement = folder.parentElement as HTMLElement
+            observer.observe(parentElement)
         })
     }
     private scrollMobileVersion = () => {
@@ -91,7 +91,7 @@ class HorizontalScrolling {
     }
     private scrollToElement = (event: Event) => {
         const target = event.currentTarget as HTMLDivElement
-        const targetParent = target.parentElement as HTMLDivElement
+        const targetParent = (target.parentElement as HTMLDivElement).parentElement as HTMLDivElement
         const parentFirst = targetParent.parentElement as HTMLDivElement
         let parentSecond: HTMLDivElement
             if(target.classList.contains('scroll_left'))
